@@ -6,13 +6,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="409dp"
+            android:layout_height="75dp"
+            tools:layout_editor_absoluteX="1dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp" app:srcCompat="?android:attr/actionModeFindDrawable"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.48" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.075"
+                android:id="@+id/searchButton"
+                android:onClick="launchSearchActivity"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp" app:srcCompat="@android:drawable/btn_star"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.292"
+                android:id="@+id/reviewButton"
+                android:onClick="launchReviewsActivity"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp" app:srcCompat="@android:drawable/checkbox_on_background"
+                android:id="@+id/checkoutButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.52"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.529"
+                android:onClick="launchCheckedOutActivity"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp" app:srcCompat="@android:drawable/alert_light_frame"
+                android:id="@+id/historyButton"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.52"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.746"
+                android:onClick="launchHistoryActivity"/>
+        <ImageButton
+                android:layout_width="50dp"
+                android:layout_height="50dp" tools:srcCompat="@tools:sample/avatars"
+                android:id="@+id/newfeatureButton"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintVertical_bias="0.52" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.955"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+

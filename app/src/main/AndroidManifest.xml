@@ -13,6 +13,18 @@
             android:theme="@style/Theme.DSSMV_ProjectDroid_1220971_1220918"
             tools:targetApi="31">
         <activity
+                android:name=".HistoryActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".CheckedOutActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".ReviewsActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".SearchActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>
