@@ -13,19 +13,19 @@
             android:theme="@style/Theme.DSSMV_ProjectDroid_1220971_1220918"
             tools:targetApi="31">
         <activity
-                android:name=".HistoryActivity"
+                android:name=".activities.HistoryActivity"
                 android:exported="false"/>
         <activity
-                android:name=".CheckedOutActivity"
+                android:name=".activities.CheckedOutActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ReviewsActivity"
+                android:name=".activities.ReviewsActivity"
                 android:exported="false"/>
         <activity
-                android:name=".SearchActivity"
+                android:name=".activities.SearchActivity"
                 android:exported="false"/>
         <activity
-                android:name=".MainActivity"
+                android:name=".activities.MainActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
