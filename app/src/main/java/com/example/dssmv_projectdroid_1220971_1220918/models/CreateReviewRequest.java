@@ -4,6 +4,11 @@ public class CreateReviewRequest {
     private boolean recommended;
     private String review;
 
+    public CreateReviewRequest(boolean recommended, String review) {
+        this.recommended = recommended;
+        this.review = review;
+    }
+
     public boolean isRecommended() {
         return recommended;
     }

@@ -33,4 +33,6 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, HistoryActivity.class);
         startActivity(i);
     }
+
+    
 }

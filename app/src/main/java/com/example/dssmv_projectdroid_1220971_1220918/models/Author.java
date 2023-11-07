@@ -10,6 +10,14 @@ public class Author {
     private String id;
     private String name;
 
+    public Author(List<String> alternateNames, String bio, String birthDate, String deathDate, String id, String name) {
+        this.alternateNames = alternateNames;
+        this.bio = bio;
+        this.birthDate = birthDate;
+        this.deathDate = deathDate;
+        this.id = id;
+        this.name = name;
+    }
     public List<String> getAlternateNames() {
         return alternateNames;
     }

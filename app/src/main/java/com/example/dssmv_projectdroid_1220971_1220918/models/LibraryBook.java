@@ -8,6 +8,15 @@ public class LibraryBook {
     private Library library;
     private int stock;
 
+    public LibraryBook(int available, Book book, int checkedOut, String isbn, Library library, int stock) {
+        this.available = available;
+        this.book = book;
+        this.checkedOut = checkedOut;
+        this.isbn = isbn;
+        this.library = library;
+        this.stock = stock;
+    }
+
     public int getAvailable() {
         return available;
     }
