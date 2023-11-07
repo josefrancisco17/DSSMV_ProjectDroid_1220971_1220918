@@ -7,6 +7,12 @@ public class TypeheadResponse {
     private List<String> subjects;
     private List<String> titles;
 
+    public TypeheadResponse(List<String> authors, List<String> subjects, List<String> titles) {
+        this.authors = authors;
+        this.subjects = subjects;
+        this.titles = titles;
+    }
+
     public List<String> getAuthors() {
         return authors;
     }

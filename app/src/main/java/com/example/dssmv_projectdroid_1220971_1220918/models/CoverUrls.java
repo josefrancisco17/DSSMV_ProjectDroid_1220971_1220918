@@ -5,6 +5,12 @@ public class CoverUrls {
     private String mediumUrl;
     private String smallUrl;
 
+    public CoverUrls(String largeUrl, String mediumUrl, String smallUrl) {
+        this.largeUrl = largeUrl;
+        this.mediumUrl = mediumUrl;
+        this.smallUrl = smallUrl;
+    }
+
     public String getLargeUrl() {
         return largeUrl;
     }

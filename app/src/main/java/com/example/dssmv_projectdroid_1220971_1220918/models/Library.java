@@ -10,6 +10,17 @@ public class Library {
     private String openStatement;
     private LocalTime openTime;
 
+    public Library(String address, LocalTime closeTime, String id, String name, boolean open, String openDays, String openStatement, LocalTime openTime) {
+        this.address = address;
+        this.closeTime = closeTime;
+        this.id = id;
+        this.name = name;
+        this.open = open;
+        this.openDays = openDays;
+        this.openStatement = openStatement;
+        this.openTime = openTime;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -64,6 +75,13 @@ public class Library {
         this.openDays = openDays;
     }
 
+    public String getOpenStatement() {
+        return openStatement;
+    }
+
+    public void setOpenStatement(String openStatement) {
+        this.openStatement = openStatement;
+    }
 
     public LocalTime getOpenTime() {
         return openTime;

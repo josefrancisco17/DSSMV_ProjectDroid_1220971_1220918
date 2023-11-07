@@ -3,8 +3,15 @@ package com.example.dssmv_projectdroid_1220971_1220918.models;
 public class LocalTime {
     private int hour;
     private int minute;
-    private int nano;
     private int second;
+    private int nano;
+
+    public LocalTime(int hour, int minute, int second, int nano) {
+        this.hour = hour;
+        this.minute = minute;
+        this.second = second;
+        this.nano = nano;
+    }
 
     public int getHour() {
         return hour;
@@ -14,7 +21,6 @@ public class LocalTime {
         this.hour = hour;
     }
 
-
     public int getMinute() {
         return minute;
     }
@@ -23,6 +29,13 @@ public class LocalTime {
         this.minute = minute;
     }
 
+    public int getSecond() {
+        return second;
+    }
+
+    public void setSecond(int second) {
+        this.second = second;
+    }
 
     public int getNano() {
         return nano;
@@ -30,14 +43,5 @@ public class LocalTime {
 
     public void setNano(int nano) {
         this.nano = nano;
-    }
-
-
-    public int getSecond() {
-        return second;
-    }
-
-    public void setSecond(int second) {
-        this.second = second;
     }
 }

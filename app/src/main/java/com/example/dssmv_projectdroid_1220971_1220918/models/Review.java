@@ -8,6 +8,15 @@ public class Review {
     private String review;
     private String reviewer;
 
+    public Review(String createdDate, String id, String isbn, boolean recommended, String review, String reviewer) {
+        this.createdDate = createdDate;
+        this.id = id;
+        this.isbn = isbn;
+        this.recommended = recommended;
+        this.review = review;
+        this.reviewer = reviewer;
+    }
+
     public String getCreatedDate() {
         return createdDate;
     }

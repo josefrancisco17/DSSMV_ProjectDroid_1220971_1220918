@@ -15,6 +15,22 @@ public class CheckedOutBook {
     private String updateTimestamp;
     private String userId;
 
+    public CheckedOutBook(boolean active, Book book, String bookId, String createTimestamp, String dueDate, String id,String libraryAddress, LocalTime libraryCloseTime, String libraryId, String libraryName,LocalTime libraryOpenTime, String updateTimestamp, String userId) {
+        this.active = active;
+        this.book = book;
+        this.bookId = bookId;
+        this.createTimestamp = createTimestamp;
+        this.dueDate = dueDate;
+        this.id = id;
+        this.libraryAddress = libraryAddress;
+        this.libraryCloseTime = libraryCloseTime;
+        this.libraryId = libraryId;
+        this.libraryName = libraryName;
+        this.libraryOpenTime = libraryOpenTime;
+        this.updateTimestamp = updateTimestamp;
+        this.userId = userId;
+    }
+
 
     public boolean isActive() {
         return active;

@@ -16,6 +16,21 @@ public class Book {
     private List<String> subjects;
     private String title;
 
+    public Book(List<Author> authors, String byStatement, CoverUrls cover, String description, String isbn, int numberOfpages, String publishDate, List<String> subjectPeople, List<String> subjectPlaces, List<String> subjectTimes, List<String> subjects, String title) {
+        this.authors = authors;
+        this.byStatement = byStatement;
+        this.cover = cover;
+        this.description = description;
+        this.isbn = isbn;
+        this.numberOfPages = numberOfpages;
+        this.publishDate = publishDate;
+        this.subjectPeople = subjectPeople;
+        this.subjectPlaces = subjectPlaces;
+        this.subjectTimes = subjectTimes;
+        this.subjects = subjects;
+        this.title = title;
+    }
+
     public List<Author> getAuthors() {
         return authors;
     }

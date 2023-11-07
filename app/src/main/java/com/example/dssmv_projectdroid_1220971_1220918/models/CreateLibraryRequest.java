@@ -7,6 +7,14 @@ public class CreateLibraryRequest {
     private String openDays;
     private LocalTime openTime;
 
+    public CreateLibraryRequest(String address, LocalTime closeTime, String name, String openDays, LocalTime openTime) {
+        this.address = address;
+        this.closeTime = closeTime;
+        this.name = name;
+        this.openDays = openDays;
+        this.openTime = openTime;
+    }
+
     public String getAddress() {
         return address;
     }

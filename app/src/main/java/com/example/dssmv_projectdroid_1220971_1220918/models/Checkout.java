@@ -10,6 +10,17 @@ public class Checkout {
     private String updateTimestamp;
     private String userId;
 
+    public Checkout(boolean active, LibraryBook book, String createTimestamp, String dueDate, String id, boolean overdue, String updateTimestamp, String userId) {
+        this.active = active;
+        this.book = book;
+        this.createTimestamp = createTimestamp;
+        this.dueDate = dueDate;
+        this.id = id;
+        this.overdue = overdue;
+        this.updateTimestamp = updateTimestamp;
+        this.userId = userId;
+    }
+
     public boolean isActive() {
         return active;
     }
