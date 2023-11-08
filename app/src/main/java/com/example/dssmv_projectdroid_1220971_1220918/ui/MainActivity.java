@@ -2,11 +2,9 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.dssmv_projectdroid_1220971_1220918.R;
-import com.example.dssmv_projectdroid_1220971_1220918.network.network;
 
 
 public class MainActivity extends AppCompatActivity {
