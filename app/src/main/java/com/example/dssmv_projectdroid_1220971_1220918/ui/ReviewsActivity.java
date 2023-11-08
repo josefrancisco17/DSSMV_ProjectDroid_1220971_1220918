@@ -1,4 +1,4 @@
-package com.example.dssmv_projectdroid_1220971_1220918.activities;
+package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
 import android.content.Intent;
 import android.view.View;
@@ -6,12 +6,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.dssmv_projectdroid_1220971_1220918.R;
 
-public class CheckedOutActivity extends AppCompatActivity {
+public class ReviewsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checked_out);
+        setContentView(R.layout.activity_reviews);
     }
 
     public void backMainActivity(View v) {

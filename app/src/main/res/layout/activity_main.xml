@@ -5,12 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.MainActivity">
+        tools:context=".ui.MainActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="409dp"
             android:layout_height="75dp"
             tools:layout_editor_absoluteX="1dp"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/constraintLayout">
         <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp" app:srcCompat="?android:attr/actionModeFindDrawable"
@@ -56,5 +56,41 @@
                 app:layout_constraintVertical_bias="0.52" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.955"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/libraryName"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.492" app:layout_constraintVertical_bias="0.269"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/libraryAdress"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.492" app:layout_constraintVertical_bias="0.376"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/libraryOpenDays"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.492" app:layout_constraintVertical_bias="0.471"/>
+    <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/libraryOpen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintVertical_bias="0.571"/>
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/button"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintVertical_bias="0.155"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
