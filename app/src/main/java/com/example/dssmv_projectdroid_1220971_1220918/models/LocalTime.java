@@ -13,14 +13,6 @@ public class LocalTime {
         this.nano = nano;
     }
 
-    public LocalTime(String s) {
-        String[] timeComponents = s.split(":");
-        this.hour = Integer.parseInt(timeComponents[0]);
-        this.minute = Integer.parseInt(timeComponents[1]);
-        this.second = Integer.parseInt(timeComponents[2]);
-        int nano = 0;
-    }
-
     public int getHour() {
         return hour;
     }

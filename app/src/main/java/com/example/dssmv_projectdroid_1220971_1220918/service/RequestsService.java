@@ -18,7 +18,7 @@ public class RequestsService {
             try {
                 String url = BaseUrl + "library/";
                 String json = NetworkHandler.getDataInStringFromUrl(url);
-                List<LibraryDTO> LibrariesDTOList = JsonHandler.deSerializeJson2LibraryDTO(json);
+                List<LibraryDTO> LibrariesDTOList = JsonHandler.deSerializeJson2ListLibraryDTO(json);
                 List<Library> LibrariesList = Mapper.listLibraryDTO2listLibrary(LibrariesDTOList);
                 return LibrariesList;
             }  catch(Exception e){

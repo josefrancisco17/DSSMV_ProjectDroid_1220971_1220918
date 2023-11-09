@@ -1,18 +1,17 @@
 package com.example.dssmv_projectdroid_1220971_1220918.dto;
 
-import com.example.dssmv_projectdroid_1220971_1220918.models.LocalTime;
 
 public class LibraryDTO {
     private String address;
-    private LocalTime closeTime;
+    private String closeTime;
     private String id;
     private String name;
-    private boolean open;
+    private String open;
     private String openDays;
     private String openStatement;
-    private LocalTime openTime;
+    private String openTime;
 
-    public LibraryDTO(String address, LocalTime closeTime, String id, String name, boolean open, String openDays, String openStatement, LocalTime openTime) {
+    public LibraryDTO(String address, String closeTime, String id, String name, String open, String openDays, String openStatement, String openTime) {
         this.address = address;
         this.closeTime = closeTime;
         this.id = id;
@@ -32,11 +31,11 @@ public class LibraryDTO {
     }
 
 
-    public LocalTime getCloseTime() {
+    public String getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(LocalTime closeTime) {
+    public void setCloseTime(String closeTime) {
         this.closeTime = closeTime;
     }
 
@@ -59,12 +58,12 @@ public class LibraryDTO {
     }
 
 
-    public boolean isOpen() {
+    public String isOpen() {
         return open;
     }
 
 
-    public void setOpen(boolean open) {
+    public void setOpen(String open) {
         this.open = open;
     }
 
@@ -85,11 +84,11 @@ public class LibraryDTO {
         this.openStatement = openStatement;
     }
 
-    public LocalTime getOpenTime() {
+    public String getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(LocalTime openTime) {
+    public void setOpenTime(String openTime) {
         this.openTime = openTime;
     }
 }

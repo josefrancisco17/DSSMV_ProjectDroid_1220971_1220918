@@ -19,7 +19,7 @@
                 app:layout_constraintVertical_bias="0.48" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.075"
                 android:id="@+id/searchButton"
-                android:onClick="launchSearchActivity"/>
+                android:onClick="launchLibrariesActivity"/>
         <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp" app:srcCompat="@android:drawable/btn_star"
@@ -50,19 +50,15 @@
         <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp" tools:srcCompat="@tools:sample/avatars"
-                android:id="@+id/newfeatureButton"
+                android:id="@+id/settingsButton"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintVertical_bias="0.52" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.955"/>
+                app:layout_constraintHorizontal_bias="0.955" android:onClick="launchSettingsActivity"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <LinearLayout
             android:orientation="vertical"
             android:layout_width="409dp"
-            android:layout_height="654dp" tools:layout_editor_absoluteY="1dp" tools:layout_editor_absoluteX="1dp">
-        <ListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:id="@+id/listViewLibraries"/>
-    </LinearLayout>
+            android:layout_height="654dp" tools:layout_editor_absoluteY="1dp" tools:layout_editor_absoluteX="1dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
