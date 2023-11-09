@@ -8,15 +8,14 @@ import com.example.dssmv_projectdroid_1220971_1220918.R;
 
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-    public void launchSearchActivity(View v) {
-        Intent i = new Intent(this, SearchActivity.class);
+    public void launchLibrariesActivity(View v) {
+        Intent i = new Intent(this, LibrariesActivity.class);
         startActivity(i);
     }
 
@@ -32,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void launchHistoryActivity(View v) {
         Intent i = new Intent(this, HistoryActivity.class);
+        startActivity(i);
+    }
+
+    public void launchSettingsActivity(View v) {
+        Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
     }
 }

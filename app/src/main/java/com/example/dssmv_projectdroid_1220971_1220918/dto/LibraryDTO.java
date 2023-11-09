@@ -1,6 +1,7 @@
-package com.example.dssmv_projectdroid_1220971_1220918.models;
+package com.example.dssmv_projectdroid_1220971_1220918.dto;
 
-public class Library {
+
+public class LibraryDTO {
     private String address;
     private String closeTime;
     private String id;
@@ -10,7 +11,7 @@ public class Library {
     private String openStatement;
     private String openTime;
 
-    public Library(String address, String closeTime, String id, String name, String open, String openDays, String openStatement, String openTime) {
+    public LibraryDTO(String address, String closeTime, String id, String name, String open, String openDays, String openStatement, String openTime) {
         this.address = address;
         this.closeTime = closeTime;
         this.id = id;
@@ -19,10 +20,6 @@ public class Library {
         this.openDays = openDays;
         this.openStatement = openStatement;
         this.openTime = openTime;
-    }
-
-    public Library(String name) {
-        this.name = name;
     }
 
     public String getAddress() {

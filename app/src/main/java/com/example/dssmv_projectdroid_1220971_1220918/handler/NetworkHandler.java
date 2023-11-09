@@ -1,5 +1,7 @@
 package com.example.dssmv_projectdroid_1220971_1220918.handler;
 
+import android.util.Log;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -10,7 +12,7 @@ public class NetworkHandler {
     public static String getDataInStringFromUrl(String url) throws IOException {
         InputStream is = NetworkHandler.openGetHttpConnection(url);
         String data ="";
-        if(is!= null) {
+        if(is != null) {
             data = NetworkHandler.readString(is);
         }
         return data;
@@ -46,7 +48,6 @@ public class NetworkHandler {
         try {
             URL url = new URL(urlStr);
             URLConnection urlConn = url.openConnection();
-
             if (!(urlConn instanceof HttpURLConnection)) {
                 throw new IOException("URL is not an Http URL");
             }
@@ -91,7 +92,7 @@ public class NetworkHandler {
             if (resCode == HttpURLConnection.HTTP_OK) {
                 in = httpConn.getInputStream();
             }else{
-                throw new RuntimeException("rescode not 200. VALUE:"+resCode + ". URL:" + urlStr +". With body:"+body);
+                throw new RuntimeException("rescode not 200. VALUE:"+ resCode + ". URL:" + urlStr +". With body:"+body);
             }
         }catch (MalformedURLException e) {
             e.printStackTrace();
