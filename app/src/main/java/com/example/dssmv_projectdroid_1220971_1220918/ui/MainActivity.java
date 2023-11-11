@@ -2,20 +2,55 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
+import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.dssmv_projectdroid_1220971_1220918.R;
+import com.example.dssmv_projectdroid_1220971_1220918.adapter.ListViewAdapterLibrary;
+import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
+import com.example.dssmv_projectdroid_1220971_1220918.service.RequestsService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
+    private ListView lv;
+    private List<Library> librariesList;
+    private ListViewAdapterLibrary adapter;
+    private ActivityResultLauncher<Intent> someActivityResultLauncher;
+
+    private Button buttonRefreshLibraries;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        librariesList = new ArrayList<>();
+        lv = (ListView) findViewById(R.id.listViewLibraries);
+
+        getLibrariesFromWs();
+
+        adapter = new ListViewAdapterLibrary(MainActivity.this, librariesList);
+        lv.setAdapter(adapter);
+        registerForContextMenu(lv);
+
+        buttonRefreshLibraries = (Button) findViewById(R.id.buttonRefreshLibraries);
+
+        buttonRefreshLibraries.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getLibrariesFromWs();
+            }
+        });
     }
 
     public void launchLibrariesActivity(View v) {
-        Intent i = new Intent(this, LibrariesActivity.class);
+        Intent i = new Intent(this, SearchActivity.class);
         startActivity(i);
     }
 
@@ -38,4 +73,31 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, SettingsActivity.class);
         startActivity(i);
     }
+
+    private void getLibrariesFromWs() {
+        new Thread() {
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getApplicationContext(), "Libraries have been Loaded", Toast.LENGTH_SHORT).show();
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                List<Library> libraryDTOS = RequestsService.getLibrariesList(MainActivity.this);
+                librariesList.clear();
+                if (libraryDTOS == null){
+                    return;
+                }
+                librariesList.addAll(libraryDTOS);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        }.start();
+    }
 }
+

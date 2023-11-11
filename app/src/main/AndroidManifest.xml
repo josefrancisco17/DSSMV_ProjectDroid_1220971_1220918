@@ -29,7 +29,7 @@
                 android:name=".ui.ReviewsActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.LibrariesActivity"
+                android:name=".ui.SearchActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.MainActivity"
