@@ -17,6 +17,9 @@
             android:usesCleartextTraffic="true"
             tools:targetApi="31">
         <activity
+                android:name=".ui.SearchBookActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".ui.SettingsActivity"
                 android:exported="false"/>
         <activity
@@ -29,7 +32,7 @@
                 android:name=".ui.ReviewsActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.SearchActivity"
+                android:name=".ui.SearchLibraryActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.MainActivity"

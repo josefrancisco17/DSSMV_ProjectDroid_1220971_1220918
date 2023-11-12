@@ -11,7 +11,7 @@ import com.example.dssmv_projectdroid_1220971_1220918.R;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 
 
-public class ListViewAdapterLibrary extends BaseAdapter{
+public class ListViewAdapterLibrary extends BaseAdapter {
 
     private Context context;
     private List<Library> items;
