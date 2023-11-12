@@ -117,7 +117,7 @@ public class SearchBookActivity extends AppCompatActivity {
     }
 
     public void backSearchLibraryActivity(View v) {
-        Intent i = new Intent(this, MainActivity.class);
+        Intent i = new Intent(this, SearchLibraryActivity.class);
         startActivity(i);
     }
 }

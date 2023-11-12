@@ -44,7 +44,6 @@ public class JsonHandler {
             int stock = jsonLibraryBook.getInt("stock");
 
             // Extracting Book information
-            // Extracting Book information
             JSONObject jsonBook = jsonLibraryBook.getJSONObject("book");
             String bookIsbn = jsonBook.getString("isbn");
             String title = jsonBook.getString("title");
@@ -93,9 +92,9 @@ public class JsonHandler {
             List<String> subjectTimes = extractStringList(jsonBook.optJSONArray("subjectTimes"));
             List<String> subjects = extractStringList(jsonBook.optJSONArray("subjects"));
 
-            // Creating a Book object
             Book book = new Book(authors,byStatement,coverUrls,description,isbn,numberOfPages,publishDate,subjectPeople,subjectPlaces,subjectTimes,subjects,title);
 
+            // Extracting Library
             JSONObject jsonLibrary = jsonLibraryBook.getJSONObject("library");
             String libraryId = jsonLibrary.getString("id");
             String libraryName = jsonLibrary.getString("name");
@@ -105,8 +104,6 @@ public class JsonHandler {
             String libraryOpenStatement = jsonLibrary.getString("openStatement");
             String libraryOpenTime = jsonLibrary.getString("openTime");
             String libraryCloseTime = jsonLibrary.getString("closeTime");
-
-// Creating a Library object
             Library library = new Library(libraryAddress, libraryCloseTime, libraryId, libraryName, libraryOpen, libraryOpenDays, libraryOpenStatement, libraryOpenTime);
 
             LibraryBookDTO libraryBookDTO = new LibraryBookDTO(available, book, checkedOut, bookIsbn, library, stock);
