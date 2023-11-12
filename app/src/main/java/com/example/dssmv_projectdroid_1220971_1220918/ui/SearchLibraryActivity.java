@@ -2,7 +2,6 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +16,7 @@ import com.example.dssmv_projectdroid_1220971_1220918.service.RequestsService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchLibraryActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerViewAdapterLibrary adapter;
@@ -28,7 +27,7 @@ public class SearchActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+        setContentView(R.layout.activity_search_library);
 
         SearchView searchView = findViewById(R.id.searchViewLibraries);
         recyclerView = findViewById(R.id.recyclerViewLibraries);
@@ -53,7 +52,10 @@ public class SearchActivity extends AppCompatActivity {
                     }
                 }
                 if (selectedLibrary != null) {
-                    Toast.makeText(SearchActivity.this, "Clicked: " + selectedLibrary.getName(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SearchLibraryActivity.this, "Clicked: " + selectedLibrary.getName(), Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(SearchLibraryActivity.this, SearchBookActivity.class);
+                    i.putExtra("selectedLibraryId", selectedLibrary.getId());
+                    startActivity(i);
                 }
             }
         });
@@ -92,12 +94,12 @@ public class SearchActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
                 });
-                List<Library> libraryDTOS = RequestsService.getLibrariesList(SearchActivity.this);
+                List<Library> libraryList = RequestsService.getLibrariesList(SearchLibraryActivity.this);
                 librariesList.clear();
-                if (libraryDTOS == null){
+                if (libraryList == null){
                     return;
                 }
-                librariesList.addAll(libraryDTOS);
+                librariesList.addAll(libraryList);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

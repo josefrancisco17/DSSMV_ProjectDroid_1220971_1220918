@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchLibrariesActivity(View v) {
-        Intent i = new Intent(this, SearchActivity.class);
+        Intent i = new Intent(this, SearchLibraryActivity.class);
         startActivity(i);
     }
 

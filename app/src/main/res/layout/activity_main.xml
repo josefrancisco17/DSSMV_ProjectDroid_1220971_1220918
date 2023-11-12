@@ -26,11 +26,12 @@
                 app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" android:id="@+id/listViewLibraries" android:layout_margin="10dp"
+            android:layout_width="413dp"
+            android:layout_height="711dp" android:id="@+id/listViewLibraries" android:layout_margin="10dp"
             android:paddingTop="60dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.473" app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="4dp"/>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="75dp"
