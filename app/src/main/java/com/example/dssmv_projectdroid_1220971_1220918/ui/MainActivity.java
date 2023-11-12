@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 getLibrariesFromWs();
+                Toast.makeText(getApplicationContext(), "Libraries have been Loaded", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(getApplicationContext(), "Libraries have been Loaded", Toast.LENGTH_SHORT).show();
                         adapter.notifyDataSetChanged();
                     }
                 });
