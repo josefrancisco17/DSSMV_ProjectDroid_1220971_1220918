@@ -5,12 +5,40 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.MainActivity" android:layout_marginTop="10dp">
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" android:id="@+id/constraintLayout3">
+
+        <TextView
+                android:text="Libraries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintVertical_bias="0.555" android:textSize="34sp" android:typeface="serif"/>
+        <Button
+                android:text="refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/buttonRefreshLibraries"
+                tools:layout_editor_absoluteY="3dp" android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ListView
+            android:layout_width="413dp"
+            android:layout_height="711dp" android:id="@+id/listViewLibraries" android:layout_margin="10dp"
+            android:paddingTop="60dp"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="4dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
             android:layout_height="75dp"
-            tools:layout_editor_absoluteX="1dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/constraintLayout">
+            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/constraintLayout"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:background="#141414">
         <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp" app:srcCompat="?android:attr/actionModeFindDrawable"
@@ -56,9 +84,5 @@
                 app:layout_constraintVertical_bias="0.52" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintHorizontal_bias="0.955" android:onClick="launchSettingsActivity"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="409dp"
-            android:layout_height="654dp" tools:layout_editor_absoluteY="1dp" tools:layout_editor_absoluteX="1dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

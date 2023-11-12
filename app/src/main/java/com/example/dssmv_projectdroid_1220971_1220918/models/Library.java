@@ -21,10 +21,6 @@ public class Library {
         this.openTime = openTime;
     }
 
-    public Library(String name) {
-        this.name = name;
-    }
-
     public String getAddress() {
         return address;
     }
