@@ -42,7 +42,7 @@ public class SearchBookActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewBooks);
 
         libraryBooksList = new ArrayList<>();
-        getLibrariesFromWs();
+        getlibraryBooksListFromWs();
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         List<String> libraryBooksNamesList = new ArrayList<>();
@@ -62,6 +62,9 @@ public class SearchBookActivity extends AppCompatActivity {
                 }
                 if (selectedLibraryBook != null) {
                     Toast.makeText(SearchBookActivity.this, "Clicked: " + selectedLibraryBook.getBook().getTitle(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(SearchBookActivity.this, BookActivity.class);
+                    intent.putExtra("selectedLibraryBookIsbn", selectedLibraryBook.getIsbn());
+                    startActivity(intent);
                 }
             }
         });
@@ -91,7 +94,7 @@ public class SearchBookActivity extends AppCompatActivity {
         adapter.filterList(filteredList);
     }
 
-    private void getLibrariesFromWs() {
+    private void getlibraryBooksListFromWs() {
         new Thread() {
             public void run() {
                 runOnUiThread(new Runnable() {
