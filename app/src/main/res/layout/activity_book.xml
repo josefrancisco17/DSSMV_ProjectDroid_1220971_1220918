@@ -60,14 +60,14 @@
             android:id="@+id/numberofPagesBook" app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintVertical_bias="0.272" android:textAlignment="center"/>
     <Button
-            android:text="CheckIn"
+            android:text="CheckOut"
             android:layout_width="136dp"
-            android:layout_height="60dp" android:id="@+id/CheckInButton"
+            android:layout_height="60dp" android:id="@+id/CheckOutButton"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="621dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="50dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="40dp" android:layout_marginEnd="235dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:onClick="launchCheckOutActivity"/>
     <Button
             android:text="Reviews"
             android:layout_width="138dp"
@@ -76,7 +76,7 @@
             android:layout_marginTop="623dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="50dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="217dp" android:layout_marginEnd="56dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" android:onClick="launchReviewsActivity"/>
     <ScrollView
             android:layout_width="410dp"
             android:layout_height="223dp"
@@ -89,4 +89,15 @@
                 android:layout_height="match_parent" android:id="@+id/descriptionBook"
         />
     </ScrollView>
+    <TextView
+            android:text="Library"
+            android:layout_width="218dp"
+            android:layout_height="74dp" android:id="@+id/libraryBook"
+            android:textStyle="bold" android:textSize="24sp"
+            android:textAlignment="center" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="666dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="189dp"
+            android:layout_marginEnd="12dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.276" app:layout_constraintVertical_bias="0.0"
+            android:typeface="serif"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

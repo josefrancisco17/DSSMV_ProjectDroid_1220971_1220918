@@ -29,7 +29,7 @@
                 android:name=".ui.HistoryActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.CheckedOutActivity"
+                android:name=".ui.CheckOutActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.ReviewsActivity"
