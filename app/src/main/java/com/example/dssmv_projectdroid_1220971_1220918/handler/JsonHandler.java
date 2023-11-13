@@ -1,6 +1,7 @@
 package com.example.dssmv_projectdroid_1220971_1220918.handler;
 
 import android.util.Log;
+import com.example.dssmv_projectdroid_1220971_1220918.dto.BookDTO;
 import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryBookDTO;
 import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryDTO;
 import com.example.dssmv_projectdroid_1220971_1220918.models.*;
@@ -30,6 +31,70 @@ public class JsonHandler {
             list.add(new LibraryDTO(address, closeTime, id, name, open, openDays, openStatement, openTime));
         }
         return list;
+    }
+
+    public static BookDTO deSerializeJson2BookDTO(String json) throws JSONException {
+        JSONObject jsonObject = new JSONObject(json);
+
+        // Extracting Book information
+        String isbn = jsonObject.getString("isbn");
+        String title = jsonObject.getString("title");
+        String description = jsonObject.getString("description");
+
+        // Extracting authors
+        JSONArray jsonAuthors = jsonObject.getJSONArray("authors");
+        List<Author> authors = new ArrayList<>();
+
+        for (int j = 0; j < jsonAuthors.length(); j++) {
+            JSONObject jsonAuthor = jsonAuthors.getJSONObject(j);
+            String authorName = jsonAuthor.getString("name");
+            String authorBio = jsonAuthor.optString("bio", null);
+            String authorBirthDate = jsonAuthor.optString("birthDate", null);
+            String authorDeathDate = jsonAuthor.optString("deathDate", null);
+            String authorId = jsonAuthor.optString("id", null);
+
+            // Extracting alternateNames
+            JSONArray jsonAlternateNames = jsonAuthor.optJSONArray("alternateNames");
+            List<String> alternateNames = new ArrayList<>();
+            if (jsonAlternateNames != null) {
+                for (int k = 0; k < jsonAlternateNames.length(); k++) {
+                    String alternateName = jsonAlternateNames.getString(k);
+                    alternateNames.add(alternateName);
+                }
+            }
+
+            // Creating an Author object and adding it to the list
+            Author author = new Author(alternateNames, authorBio, authorBirthDate, authorDeathDate, authorId, authorName);
+            authors.add(author);
+        }
+
+        // Extracting subjectPeople, subjectPlaces, subjectTimes, and subjects as List<String>
+        List<String> subjectPeople = extractStringList(jsonObject.optJSONArray("subjectPeople"));
+        List<String> subjectPlaces = extractStringList(jsonObject.optJSONArray("subjectPlaces"));
+        List<String> subjectTimes = extractStringList(jsonObject.optJSONArray("subjectTimes"));
+        List<String> subjects = extractStringList(jsonObject.optJSONArray("subjects"));
+
+        // Extracting other BookDTO information
+        String byStatement = jsonObject.optString("byStatement", null);
+
+        // Extracting Cover information
+        JSONObject jsonCover = jsonObject.optJSONObject("cover");
+        String mediumUrl = "";
+        String smallUrl = "";
+        String largeUrl = "";
+
+        if (jsonCover != null) {
+            mediumUrl = jsonCover.optString("mediumUrl", "");
+            smallUrl = jsonCover.optString("smallUrl", "");
+            largeUrl = jsonCover.optString("largeUrl", "");
+        }
+
+        CoverUrls coverUrls = new CoverUrls(mediumUrl, smallUrl, largeUrl);
+        int numberOfPages = jsonObject.optInt("numberOfPages", 0); // Provide a default value
+        String publishDate = jsonObject.optString("publishDate", null);
+
+        // Creating a BookDTO object
+        return new BookDTO(authors, byStatement, coverUrls, description, isbn, numberOfPages, publishDate, subjectPeople, subjectPlaces, subjectTimes, subjects, title);
     }
 
     public static List<LibraryBookDTO> deSerializeJson2ListLibraryBookDTO(String json) throws JSONException {
@@ -73,8 +138,6 @@ public class JsonHandler {
                         alternateNames.add(alternateName);
                     }
                 }
-
-                // Creating an Author object and adding it to the list
                 Author author = new Author(alternateNames, authorBio, authorBirthDate, authorDeathDate, authorId, authorName);
                 authors.add(author);
             }
