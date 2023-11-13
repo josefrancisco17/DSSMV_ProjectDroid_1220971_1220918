@@ -3,13 +3,16 @@ package com.example.dssmv_projectdroid_1220971_1220918.service;
 import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
+import com.example.dssmv_projectdroid_1220971_1220918.dto.BookDTO;
 import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryBookDTO;
 import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryDTO;
 import com.example.dssmv_projectdroid_1220971_1220918.dto.Mapper;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.JsonHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.NetworkHandler;
+import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,11 +42,8 @@ public class RequestsService {
             try {
                 String url = BaseUrl + "library/" + selectedLibraryId + "/book";
                 String json = NetworkHandler.getDataInStringFromUrl(url);
-                Log.d("json", json);
                 List<LibraryBookDTO> LibraryBooksDTOList = JsonHandler.deSerializeJson2ListLibraryBookDTO(json);
-                Log.d("LibraryBooksDTOList", LibraryBooksDTOList.toString());
                 List<LibraryBook> LibraryBooksList = Mapper.listLibraryBookDTO2listLibraryBook(LibraryBooksDTOList);
-                Log.d("LibraryBooksList", LibraryBooksList.toString());
                 return LibraryBooksList;
             }  catch(Exception e){
                 e.printStackTrace();
@@ -51,6 +51,28 @@ public class RequestsService {
                     @Override
                     public void run() {
                         Toast.makeText(activity,"getLibraryBooksList Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            return null;
+        }
+
+        public static Book getBook(Activity activity, String bookIsbn){
+            try {
+                String url = BaseUrl + "book/" + bookIsbn;
+                String json = NetworkHandler.getDataInStringFromUrl(url);
+                Log.d("json", json);
+                BookDTO bookDTO = JsonHandler.deSerializeJson2BookDTO(json);
+                Log.d("BookDTO", bookDTO.toString());
+                Book book = Mapper.bookDTO2book(bookDTO);
+                Log.d("Book", book.toString());
+                return book;
+            }  catch(Exception e){
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity,"getBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

@@ -1,6 +1,7 @@
 package com.example.dssmv_projectdroid_1220971_1220918.dto;
 
 import android.util.Log;
+import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
 
@@ -32,5 +33,9 @@ public class Mapper {
 
     public static LibraryBook libraryBookDTO2LibraryBook(LibraryBookDTO obj){
         return new LibraryBook(obj.getAvailable(), obj.getBook(), obj.getCheckedOut(), obj.getIsbn(), obj.getLibrary(), obj.getStock());
+    }
+
+    public static Book bookDTO2book(BookDTO obj){
+        return new Book(obj.getAuthors(), obj.getByStatement(), obj.getCover(), obj.getDescription(), obj.getIsbn(), obj.getNumberOfPages(), obj.getPublishDate(), obj.getSubjectPeople(), obj.getSubjectPlaces(), obj.getSubjectTimes(), obj.getSubjects(), obj.getTitle());
     }
 }

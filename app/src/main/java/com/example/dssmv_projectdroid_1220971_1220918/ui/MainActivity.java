@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void launchCheckedOutActivity(View v) {
-        Intent i = new Intent(this, CheckedOutActivity.class);
+    public void launchCheckInActivity(View v) {
+        Intent i = new Intent(this, CheckOutActivity.class);
         startActivity(i);
     }
 
