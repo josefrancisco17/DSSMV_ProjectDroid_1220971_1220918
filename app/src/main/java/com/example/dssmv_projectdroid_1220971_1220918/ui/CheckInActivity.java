@@ -3,6 +3,7 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
@@ -34,21 +35,16 @@ public class CheckInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_in);
 
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        userName = preferences.getString("userName", "defaultValue");
+
         checkoutList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.listViewCheckIn);
 
-        Button submitButton = (Button) findViewById(R.id.submitcheckinButton);
-        submitButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                hideKeyboard();
-                getUser();
-                getCheckOutBooksListFromWs();
-                adapter = new ListViewAdapterCheckOut(CheckInActivity.this, checkoutList);
-                lv.setAdapter(adapter);
-                registerForContextMenu(lv);
-            }
-        });
+        getCheckOutBooksListFromWs();
+        adapter = new ListViewAdapterCheckOut(CheckInActivity.this, checkoutList);
+        lv.setAdapter(adapter);
+        registerForContextMenu(lv);
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -91,21 +87,6 @@ public class CheckInActivity extends AppCompatActivity {
         });
     }
 
-    private void hideKeyboard() {
-        View view = this.getCurrentFocus();
-        if (view != null) {
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-        }
-    }
-
-    public void getUser() {
-        userName = ((TextView) findViewById(R.id.textinputNameCheckIn)).getText().toString();
-        if (userName.isEmpty()) {
-            userName = "Wonderful User";
-        }
-    }
-
     public void getCheckOutBooksListFromWs() {
         new Thread() {
             public void run() {
@@ -143,8 +124,6 @@ public class CheckInActivity extends AppCompatActivity {
             });
         }).start();
     }
-
-
 
     public void backMainActivity(View v) {
         Intent i = new Intent(this, MainActivity.class);

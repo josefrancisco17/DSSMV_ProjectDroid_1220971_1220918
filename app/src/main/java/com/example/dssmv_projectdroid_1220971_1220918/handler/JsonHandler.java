@@ -244,9 +244,9 @@ public class JsonHandler {
             List<String> subjectTimes = extractStringList(jsonBook.optJSONArray("subjectTimes"));
             List<String> subjects = extractStringList(jsonBook.optJSONArray("subjects"));
 
-            Library library = new Library(libraryAddress, libraryCloseTime, libraryId, libraryName, "true", libraryOpenTime,"todos os dias" ,libraryOpenTime);
+            Library library = new Library(libraryAddress, libraryCloseTime, libraryId, libraryName, "true", libraryOpenTime," " ,libraryOpenTime);
             Book book = new Book(authors,byStatement,coverUrls,description,bookIsbn,numberOfPages,publishDate,subjectPeople,subjectPlaces,subjectTimes,subjects,title);
-            LibraryBook libraryBook = new LibraryBook(10, book, 5, bookIsbn, library, 5);
+            LibraryBook libraryBook = new LibraryBook(1, book, 1, bookIsbn, library, 1);
 
             CheckoutDTO checkoutDTO = new CheckoutDTO(active, libraryBook, createTimestamp, dueDate, id, false, updateTimestamp, userId);
             list.add(checkoutDTO);
