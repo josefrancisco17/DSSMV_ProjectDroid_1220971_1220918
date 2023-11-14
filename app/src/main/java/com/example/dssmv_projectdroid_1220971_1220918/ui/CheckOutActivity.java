@@ -51,7 +51,6 @@ public class CheckOutActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    Toast.makeText(activity,"Successfully CheckOut",Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(CheckOutActivity.this, MainActivity.class);
                     startActivity(i);
                 }

@@ -3,10 +3,9 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,6 +17,7 @@ import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
 import com.example.dssmv_projectdroid_1220971_1220918.service.RequestsService;
 import android.view.inputmethod.InputMethodManager;
+import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +50,47 @@ public class CheckInActivity extends AppCompatActivity {
             }
         });
 
-        //on listView item click postCheckInBooktoWs(CheckOutActivity.this, selectedLibraryId, selectedLibraryBookIsbn, userName);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Checkout selectedItem = null;
+                for (Checkout item : checkoutList) {
+                    //duplo getbook() visto que e checkout -> LibraryBook -> Book
+                    if (item.getBook().getBook().getTitle() != null && item.getBook().getBook().getTitle().toLowerCase().equals(checkoutList.get(position).getBook().getBook().getTitle().toLowerCase())) {
+                        selectedItem = item;
+                        break;
+                    }
+                }
+                if (selectedItem != null) {
+                    Toast.makeText(CheckInActivity.this, "Clicked: " + selectedItem.getBook().getBook().getTitle(), Toast.LENGTH_LONG).show();
+                    postCheckInBooktoWs(CheckInActivity.this, selectedItem.getBook().getLibrary().getId(), selectedItem.getBook().getIsbn(), userName);
+                    Intent intent = new Intent(CheckInActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Checkout selectedItem = null;
+                for (Checkout item : checkoutList) {
+                    if (item.getBook().getBook().getTitle() != null && item.getBook().getBook().getTitle().toLowerCase().equals(checkoutList.get(position).getBook().getBook().getTitle().toLowerCase())) {
+                        selectedItem = item;
+                        break;
+                    }
+                }
+                if (selectedItem != null) {
+                    Toast.makeText(CheckInActivity.this, "Clicked: " + selectedItem.getBook().getBook().getTitle(), Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(CheckInActivity.this, BookActivity.class);
+                    intent.putExtra("selectedLibraryBookIsbn", selectedItem.getBook().getIsbn());
+                    startActivity(intent);
+                }
+                return true;
+            }
+        });
     }
+
     private void hideKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
@@ -93,7 +132,16 @@ public class CheckInActivity extends AppCompatActivity {
     }
 
     public void postCheckInBooktoWs(Activity activity, String libraryId, String bookIsbn, String userName) {
-        //
+        new Thread(() -> {
+            RequestsService.postCheckInBook(activity, libraryId, bookIsbn, userName);
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Intent i = new Intent(CheckInActivity.this, MainActivity.class);
+                    startActivity(i);
+                }
+            });
+        }).start();
     }
 
 

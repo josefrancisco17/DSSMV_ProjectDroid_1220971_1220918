@@ -89,7 +89,7 @@ public class RequestsService {
                     activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            Toast.makeText(activity,"getCheckOutsList Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity," " + e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
@@ -110,6 +110,28 @@ public class RequestsService {
                             Toast.makeText(activity, "You have already checkedOut", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(activity, "postCheckOutBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
+
+        public static void postCheckInBook(Activity activity, String libraryId, String bookIsbn, String userName) {
+            try {
+                libraryId = String.format("%s-%s-%s-%s-%s", libraryId.substring(0, 8), libraryId.substring(8, 12), libraryId.substring(12, 16), libraryId.substring(16, 20), libraryId.substring(20));
+                Log.d("libraryid", libraryId);
+                String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkin" + "?userId=" + userName;
+                String json = " ";
+                String result = NetworkHandler.addDataInStringFromUrl(url, json);
+            } catch (Exception e) {
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (e.toString().contains("400")) {
+                            Toast.makeText(activity, "You have already checkedIn", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(activity, "postCheckInBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -38,7 +38,7 @@ public class ListViewAdapterCheckOut extends BaseAdapter {
     }
 
     public String getName(int position) {
-        return this.items.get(position).getBook().getTitle();
+        return this.items.get(position).getBook().getBook().getTitle();
     }
 
     @Override

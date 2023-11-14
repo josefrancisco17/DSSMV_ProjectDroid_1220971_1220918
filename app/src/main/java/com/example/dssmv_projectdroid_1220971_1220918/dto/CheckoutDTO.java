@@ -5,7 +5,7 @@ import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
 
 public class CheckoutDTO {
     private boolean active;
-    private Book book;
+    private LibraryBook book;
     private String createTimestamp;
     private String dueDate;
     private String id;
@@ -13,7 +13,7 @@ public class CheckoutDTO {
     private String updateTimestamp;
     private String userId;
 
-    public CheckoutDTO(boolean active, Book book, String createTimestamp, String dueDate, String id, boolean overdue, String updateTimestamp, String userId) {
+    public CheckoutDTO(boolean active, LibraryBook book, String createTimestamp, String dueDate, String id, boolean overdue, String updateTimestamp, String userId) {
         this.active = active;
         this.book = book;
         this.createTimestamp = createTimestamp;
@@ -33,10 +33,10 @@ public class CheckoutDTO {
     }
 
 
-    public Book getBook() {
+    public LibraryBook getBook() {
         return book;
     }
-    public void setBook(Book book) {
+    public void setBook(LibraryBook book) {
         this.book = book;
     }
 

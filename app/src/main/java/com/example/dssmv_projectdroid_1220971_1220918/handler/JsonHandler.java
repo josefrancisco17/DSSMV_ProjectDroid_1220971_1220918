@@ -192,6 +192,10 @@ public class JsonHandler {
             String dueDate = jsonObject.getString("dueDate");
             String createTimestamp = jsonObject.getString("createTimestamp");
             String updateTimestamp = jsonObject.getString("updateTimestamp");
+            String libraryName = jsonObject.getString("libraryName");
+            String libraryAddress = jsonObject.getString("libraryAddress");
+            String libraryOpenTime = jsonObject.getString("libraryOpenTime");
+            String libraryCloseTime = jsonObject.getString("libraryCloseTime");
 
             // Extracting Book information
             JSONObject jsonBook = jsonObject.getJSONObject("book");
@@ -240,9 +244,11 @@ public class JsonHandler {
             List<String> subjectTimes = extractStringList(jsonBook.optJSONArray("subjectTimes"));
             List<String> subjects = extractStringList(jsonBook.optJSONArray("subjects"));
 
+            Library library = new Library(libraryAddress, libraryCloseTime, libraryId, libraryName, "true", libraryOpenTime,"todos os dias" ,libraryOpenTime);
             Book book = new Book(authors,byStatement,coverUrls,description,bookIsbn,numberOfPages,publishDate,subjectPeople,subjectPlaces,subjectTimes,subjects,title);
+            LibraryBook libraryBook = new LibraryBook(10, book, 5, bookIsbn, library, 5);
 
-            CheckoutDTO checkoutDTO = new CheckoutDTO(active, book, createTimestamp, dueDate, id, false, updateTimestamp, userId);
+            CheckoutDTO checkoutDTO = new CheckoutDTO(active, libraryBook, createTimestamp, dueDate, id, false, updateTimestamp, userId);
             list.add(checkoutDTO);
         }
 
