@@ -3,10 +3,7 @@ package com.example.dssmv_projectdroid_1220971_1220918.service;
 import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.BookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryBookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.Mapper;
+import com.example.dssmv_projectdroid_1220971_1220918.dto.*;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.JsonHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.NetworkHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
@@ -80,6 +77,25 @@ public class RequestsService {
             return null;
         }
 
+        public static List<Checkout> getCheckOutsList(Activity activity, String userName) {
+                try {
+                    String url = BaseUrl + "user/checked-out?userId=" + userName;
+                    String json = NetworkHandler.getDataInStringFromUrl(url);
+                    List<CheckoutDTO> LibraryBooksDTOList = JsonHandler.deSerializeJson2ListCheckOutDTO(json);
+                    List<Checkout> checkoutsList = Mapper.listcheckoutDTO2listcheckout(LibraryBooksDTOList);
+                    return checkoutsList;
+                }  catch(Exception e){
+                    e.printStackTrace();
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(activity," " + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                return null;
+        }
+
         public static void postCheckOutBook(Activity activity, String libraryId, String bookIsbn, String userName) {
             try {
                 String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkout" + "?userId=" + userName;
@@ -94,6 +110,28 @@ public class RequestsService {
                             Toast.makeText(activity, "You have already checkedOut", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(activity, "postCheckOutBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
+
+        public static void postCheckInBook(Activity activity, String libraryId, String bookIsbn, String userName) {
+            try {
+                libraryId = String.format("%s-%s-%s-%s-%s", libraryId.substring(0, 8), libraryId.substring(8, 12), libraryId.substring(12, 16), libraryId.substring(16, 20), libraryId.substring(20));
+                Log.d("libraryid", libraryId);
+                String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkin" + "?userId=" + userName;
+                String json = " ";
+                String result = NetworkHandler.addDataInStringFromUrl(url, json);
+            } catch (Exception e) {
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (e.toString().contains("400")) {
+                            Toast.makeText(activity, "You have already checkedIn", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(activity, "postCheckInBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
