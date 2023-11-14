@@ -34,6 +34,12 @@ public class BookActivity extends AppCompatActivity {
 
     private void getBookFromWs() {
         new Thread(() -> {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    //
+                }
+            });
             Book selectedBook = RequestsService.getBook(BookActivity.this, selectedLibraryBookIsbn);
             if (selectedBook  == null){
                 return;
@@ -55,7 +61,8 @@ public class BookActivity extends AppCompatActivity {
                     publishDateBook.setText("Publish Date: " + book.getPublishDate());
                     numberOfPagesBook.setText("Number of Pages: " + book.getNumberOfPages());
                     descriptionBook.setText(book.getDescription());
-                    String extractedString = book.getCover().getLargeUrl().substring(book.getCover().getLargeUrl().indexOf("/api/v1/") + "/api/v1/".length());
+                    String bookImageUrl = book.getCover().getLargeUrl();
+                    String extractedString = bookImageUrl.substring(bookImageUrl.indexOf("/api/v1/") + "/api/v1/".length());
                     Picasso.get().load("http://193.136.62.24/v1/" + extractedString).into(coverBook);
                 }
             });

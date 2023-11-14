@@ -10,6 +10,7 @@ import com.example.dssmv_projectdroid_1220971_1220918.dto.Mapper;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.JsonHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.NetworkHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
+import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
 import org.json.JSONException;
@@ -77,5 +78,25 @@ public class RequestsService {
                 });
             }
             return null;
+        }
+
+        public static void postCheckOutBook(Activity activity, String libraryId, String bookIsbn, String userName) {
+            try {
+                String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkout" + "?userId=" + userName;
+                String json = " ";
+                String result = NetworkHandler.addDataInStringFromUrl(url, json);
+            } catch (Exception e) {
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (e.toString().contains("400")) {
+                            Toast.makeText(activity, "You have already checkedOut", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(activity, "postCheckOutBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
         }
 }
