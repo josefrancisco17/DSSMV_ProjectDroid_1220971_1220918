@@ -46,7 +46,6 @@ public class BookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 postCheckOutBooktoWs(BookActivity.this, selectedLibraryId, selectedLibraryBookIsbn, userName);
-                Toast.makeText(BookActivity.this, "Succefully checkout", Toast.LENGTH_SHORT).show();
             }
         });
     }

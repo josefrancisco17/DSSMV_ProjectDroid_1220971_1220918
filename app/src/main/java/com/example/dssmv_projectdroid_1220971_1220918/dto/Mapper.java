@@ -1,10 +1,7 @@
 package com.example.dssmv_projectdroid_1220971_1220918.dto;
 
 import android.util.Log;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
-import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
+import com.example.dssmv_projectdroid_1220971_1220918.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +27,19 @@ public class Mapper {
             LibraryBooksList.add(i);
         }
         return LibraryBooksList;
+    }
+
+    public static List<Review> listreviewDTO2listreview(List<ReviewDTO> reviewDTOList) {
+        List<Review> reviewList = new ArrayList<>();
+        for(ReviewDTO obj : reviewDTOList){
+            Review i = reviewDTO2review(obj);
+            reviewList.add(i);
+        }
+        return reviewList;
+    }
+
+    public static Review reviewDTO2review(ReviewDTO obj){
+        return new Review(obj.getCreatedDate(), obj.getId(), obj.getIsbn(), obj.isRecommended(), obj.getReview(), obj.getReviewer());
     }
 
     public static List<Checkout> listcheckoutDTO2listcheckout(List<CheckoutDTO> checkOutDTOList) {

@@ -1,10 +1,7 @@
 package com.example.dssmv_projectdroid_1220971_1220918.handler;
 
 import android.util.Log;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.BookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.CheckoutDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryBookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryDTO;
+import com.example.dssmv_projectdroid_1220971_1220918.dto.*;
 import com.example.dssmv_projectdroid_1220971_1220918.models.*;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -250,6 +247,26 @@ public class JsonHandler {
 
             CheckoutDTO checkoutDTO = new CheckoutDTO(active, libraryBook, createTimestamp, dueDate, id, false, updateTimestamp, userId);
             list.add(checkoutDTO);
+        }
+
+        return list;
+    }
+
+    public static List<ReviewDTO> deSerializeJson2ListReviewDTO(String json) throws JSONException {
+        JSONArray jsonResponse = new JSONArray(json);
+        List<ReviewDTO> list = new ArrayList<>();
+
+        for (int i = 0; i < jsonResponse.length(); i++) {
+            JSONObject jsonChildNode = jsonResponse.getJSONObject(i);
+
+            String createdDate = jsonChildNode.optString("createdDate");
+            String id = jsonChildNode.optString("id");
+            String isbn = jsonChildNode.optString("isbn");
+            boolean recommended = jsonChildNode.optBoolean("recommended");
+            String review = jsonChildNode.optString("review");
+            String reviewer = jsonChildNode.optString("reviewer");
+
+            list.add(new ReviewDTO(createdDate, id, isbn, recommended, review, reviewer));
         }
 
         return list;

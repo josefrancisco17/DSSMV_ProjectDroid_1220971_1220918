@@ -6,10 +6,9 @@ import android.widget.Toast;
 import com.example.dssmv_projectdroid_1220971_1220918.dto.*;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.JsonHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.NetworkHandler;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
-import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
+import com.example.dssmv_projectdroid_1220971_1220918.models.*;
+import com.example.dssmv_projectdroid_1220971_1220918.ui.BookActivity;
+import com.example.dssmv_projectdroid_1220971_1220918.ui.CheckInActivity;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -96,18 +95,38 @@ public class RequestsService {
                 return null;
         }
 
+        public static List<Review> getReviewsList(Activity activity, String bookIsbn) {
+            try {
+                String url = BaseUrl + "book/" + bookIsbn + "/review";
+                String json = NetworkHandler.getDataInStringFromUrl(url);
+                List<ReviewDTO> reviewDTOList = JsonHandler.deSerializeJson2ListReviewDTO(json);
+                List<Review> reviewList = Mapper.listreviewDTO2listreview(reviewDTOList);
+                return reviewList;
+            }  catch(Exception e){
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity," " + e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            return null;
+        }
+
         public static void postCheckOutBook(Activity activity, String libraryId, String bookIsbn, String userName) {
             try {
                 String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkout" + "?userId=" + userName;
-                String json = " ";
-                String result = NetworkHandler.addDataInStringFromUrl(url, json);
+                String body = " ";
+                String result = NetworkHandler.addDataInStringFromUrl(url, body);
+                //Toast.makeText(activity, "Succefully Checkout ", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 e.printStackTrace();
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if (e.toString().contains("400")) {
-                            Toast.makeText(activity, "You have already checkedOut", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "You have already checkedOut or Library is closed", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(activity, "postCheckOutBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }
@@ -119,17 +138,17 @@ public class RequestsService {
         public static void postCheckInBook(Activity activity, String libraryId, String bookIsbn, String userName) {
             try {
                 libraryId = String.format("%s-%s-%s-%s-%s", libraryId.substring(0, 8), libraryId.substring(8, 12), libraryId.substring(12, 16), libraryId.substring(16, 20), libraryId.substring(20));
-                Log.d("libraryid", libraryId);
                 String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkin" + "?userId=" + userName;
-                String json = " ";
-                String result = NetworkHandler.addDataInStringFromUrl(url, json);
+                String body = " ";
+                String result = NetworkHandler.addDataInStringFromUrl(url, body);
+                //Toast.makeText(activity, "Succefully CheckedIn ", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 e.printStackTrace();
                 activity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if (e.toString().contains("400")) {
-                            Toast.makeText(activity, "You have already checkedIn", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(activity, "You have already checkedIn or Library is closed", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(activity, "postCheckInBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
                         }
@@ -137,4 +156,25 @@ public class RequestsService {
                 });
             }
         }
+
+    public static void postReviewBook(Activity activity, String bookIsbn, String userName, String reviewText, boolean recommended) {
+        try {
+            String url = BaseUrl + "book/" + bookIsbn + "/review?userId=" + userName;
+            String body = "{\"recommended\": " + recommended + ", \"review\": \"" + reviewText + "\"}";
+            String result = NetworkHandler.addDataInStringFromUrl(url, body);
+            Toast.makeText(activity, "Succefully Posted Review ", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (e.toString().contains("400")) {
+                        Toast.makeText(activity, "You cannot submit a multiple reviews for the same book", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(activity,  e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
 }

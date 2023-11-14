@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void launchReviewsActivity(View v) {
-        Intent i = new Intent(this, ReviewsActivity.class);
+    public void launchMyReviewsActivity(View v) {
+        Intent i = new Intent(this, MyReviewsActivity.class);
         startActivity(i);
     }
 
