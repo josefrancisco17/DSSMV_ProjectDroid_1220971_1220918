@@ -1,9 +1,13 @@
 package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,10 +29,28 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonRefreshLibraries;
 
+    private Button logOut;
+
+    private String userName;
+
+    private boolean isLoggedIn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        userName = preferences.getString("userName", "defaultValue");
+        isLoggedIn = preferences.getBoolean("isLoggedIn", false);
+
+        if (!isLoggedIn) {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+        }
+
+        TextView loginName = (TextView) findViewById(R.id.loggedInName);
+        loginName.setText("User Name: " + userName);
 
         librariesList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.listViewLibraries);
@@ -38,6 +60,20 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ListViewAdapterLibrary(MainActivity.this, librariesList);
         lv.setAdapter(adapter);
         registerForContextMenu(lv);
+
+        logOut = (Button) findViewById(R.id.logOutButton);
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+               SharedPreferences.Editor editor = preferences.edit();
+               editor.putBoolean("isLoggedIn", false);
+               editor.apply();
+               Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+               startActivity(intent);
+           }
+        });
 
         buttonRefreshLibraries = (Button) findViewById(R.id.buttonRefreshLibraries);
 
@@ -61,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchCheckInActivity(View v) {
-        Intent i = new Intent(this, CheckOutActivity.class);
+        Intent i = new Intent(this, CheckInActivity.class);
         startActivity(i);
     }
 
@@ -84,12 +120,12 @@ public class MainActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
                 });
-                List<Library> libraryDTOS = RequestsService.getLibrariesList(MainActivity.this);
+                List<Library> libraries = RequestsService.getLibrariesList(MainActivity.this);
                 librariesList.clear();
-                if (libraryDTOS == null){
+                if (libraries == null){
                     return;
                 }
-                librariesList.addAll(libraryDTOS);
+                librariesList.addAll(libraries);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
