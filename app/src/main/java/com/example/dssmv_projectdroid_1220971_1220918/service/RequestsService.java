@@ -3,10 +3,7 @@ package com.example.dssmv_projectdroid_1220971_1220918.service;
 import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.BookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryBookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.Mapper;
+import com.example.dssmv_projectdroid_1220971_1220918.dto.*;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.JsonHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.handler.NetworkHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
@@ -78,6 +75,25 @@ public class RequestsService {
                 });
             }
             return null;
+        }
+
+        public static List<Checkout> getCheckOutsList(Activity activity, String userName) {
+                try {
+                    String url = BaseUrl + "user/checked-out?userId=" + userName;
+                    String json = NetworkHandler.getDataInStringFromUrl(url);
+                    List<CheckoutDTO> LibraryBooksDTOList = JsonHandler.deSerializeJson2ListCheckOutDTO(json);
+                    List<Checkout> checkoutsList = Mapper.listcheckoutDTO2listcheckout(LibraryBooksDTOList);
+                    return checkoutsList;
+                }  catch(Exception e){
+                    e.printStackTrace();
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(activity,"getCheckOutsList Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+                return null;
         }
 
         public static void postCheckOutBook(Activity activity, String libraryId, String bookIsbn, String userName) {

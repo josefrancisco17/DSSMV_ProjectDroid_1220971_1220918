@@ -1,6 +1,9 @@
-package com.example.dssmv_projectdroid_1220971_1220918.models;
+package com.example.dssmv_projectdroid_1220971_1220918.dto;
 
-public class Checkout {
+import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
+import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
+
+public class CheckoutDTO {
     private boolean active;
     private Book book;
     private String createTimestamp;
@@ -10,7 +13,7 @@ public class Checkout {
     private String updateTimestamp;
     private String userId;
 
-    public Checkout(boolean active, Book book, String createTimestamp, String dueDate, String id, boolean overdue, String updateTimestamp, String userId) {
+    public CheckoutDTO(boolean active, Book book, String createTimestamp, String dueDate, String id, boolean overdue, String updateTimestamp, String userId) {
         this.active = active;
         this.book = book;
         this.createTimestamp = createTimestamp;

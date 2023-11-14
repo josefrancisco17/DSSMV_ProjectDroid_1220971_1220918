@@ -2,6 +2,7 @@ package com.example.dssmv_projectdroid_1220971_1220918.dto;
 
 import android.util.Log;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
+import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
 
@@ -31,6 +32,18 @@ public class Mapper {
         return LibraryBooksList;
     }
 
+    public static List<Checkout> listcheckoutDTO2listcheckout(List<CheckoutDTO> checkOutDTOList) {
+        List<Checkout> checkoutList = new ArrayList<>();
+        for(CheckoutDTO obj : checkOutDTOList){
+            Checkout i = checkOutDTO2checkout(obj);
+            checkoutList.add(i);
+        }
+        return checkoutList;
+    }
+
+    public static Checkout checkOutDTO2checkout(CheckoutDTO obj){
+        return new Checkout(obj.isActive(), obj.getBook(), obj.getCreateTimestamp(), obj.getDueDate(), obj.getId(), obj.isOverdue(), obj.getUpdateTimestamp(), obj.getUserId());
+    }
     public static LibraryBook libraryBookDTO2LibraryBook(LibraryBookDTO obj){
         return new LibraryBook(obj.getAvailable(), obj.getBook(), obj.getCheckedOut(), obj.getIsbn(), obj.getLibrary(), obj.getStock());
     }

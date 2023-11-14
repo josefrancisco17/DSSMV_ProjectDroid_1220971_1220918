@@ -8,7 +8,7 @@
         tools:context=".ui.CheckOutActivity">
 
     <Button
-            android:text="Button"
+            android:text="Back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/backCheckedout"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:ems="10"
-            android:id="@+id/textinputName"
+            android:id="@+id/textinputNameCheckOut"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="200dp"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="486dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="132dp"
@@ -46,4 +46,14 @@
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="324dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="126dp"
             android:layout_marginEnd="126dp" app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="CheckOut"
+            android:layout_width="141dp"
+            android:layout_height="48dp" android:id="@+id/textView4"
+            android:textAlignment="center" android:fontFamily="serif"
+            android:typeface="normal" android:textSize="20sp" android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="667dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="254dp"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,23 +2,14 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.dssmv_projectdroid_1220971_1220918.R;
-import com.example.dssmv_projectdroid_1220971_1220918.handler.JsonHandler;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Book;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
 import com.example.dssmv_projectdroid_1220971_1220918.models.LibraryBook;
 import com.example.dssmv_projectdroid_1220971_1220918.service.RequestsService;
-import com.squareup.picasso.Picasso;
 import android.widget.TextView;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
-import java.util.List;
 
 public class CheckOutActivity extends AppCompatActivity {
     private String selectedLibraryBookIsbn;
@@ -41,14 +32,14 @@ public class CheckOutActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener(){
            @Override
            public void onClick(View v) {
-               checkOutBook();
+               getUserCheckOutBook();
                postCheckOutBooktoWs(CheckOutActivity.this, selectedLibraryId, selectedLibraryBookIsbn, userName);
            }
         });
     }
 
-    public void checkOutBook() {
-        userName = ((TextView) findViewById(R.id.textinputName)).getText().toString();
+    public void getUserCheckOutBook() {
+        userName = ((TextView) findViewById(R.id.textinputNameCheckOut)).getText().toString();
         if (userName.isEmpty()) {
             userName = "Wonderful User";
         }

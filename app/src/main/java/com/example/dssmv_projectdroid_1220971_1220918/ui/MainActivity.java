@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchCheckInActivity(View v) {
-        Intent i = new Intent(this, CheckOutActivity.class);
+        Intent i = new Intent(this, CheckInActivity.class);
         startActivity(i);
     }
 
@@ -84,12 +84,12 @@ public class MainActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }
                 });
-                List<Library> libraryDTOS = RequestsService.getLibrariesList(MainActivity.this);
+                List<Library> libraries = RequestsService.getLibrariesList(MainActivity.this);
                 librariesList.clear();
-                if (libraryDTOS == null){
+                if (libraries == null){
                     return;
                 }
-                librariesList.addAll(libraryDTOS);
+                librariesList.addAll(libraries);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
