@@ -54,6 +54,11 @@ public class HistoryActivity extends AppCompatActivity {
                 if (selectedItem != null) {
                     Intent intent = new Intent(HistoryActivity.this, BookActivity.class);
                     intent.putExtra("selectedLibraryBookIsbn", selectedItem.getBook().getIsbn());
+                    //necessario uma vez que a api retorna bookisbn assim bb385aa2866f419b85fd202ecec8cfde e para fzr checckout é preciso assimbb385aa2-866f-419b-85fd-202ecec8cfde
+                    String libraryId = selectedItem.getBook().getLibrary().getId();
+                    libraryId = String.format("%s-%s-%s-%s-%s", libraryId.substring(0, 8), libraryId.substring(8, 12), libraryId.substring(12, 16), libraryId.substring(16, 20), libraryId.substring(20));
+                    intent.putExtra("selectedLibraryId", libraryId);
+                    intent.putExtra("selectedLibraryName", selectedItem.getBook().getLibrary().getName());
                     startActivity(intent);
                 }
                 return true;
