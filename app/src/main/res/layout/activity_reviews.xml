@@ -32,10 +32,11 @@
             app:layout_constraintVertical_bias="0.496" android:id="@+id/listViewReviews"
             app:layout_constraintHorizontal_bias="0.416"/>
     <Button
-            android:text="Create Review"
+            android:text="Review"
             android:layout_width="163dp"
-            android:layout_height="56dp" android:id="@+id/button2"
+            android:layout_height="56dp" android:id="@+id/createReviewButton"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976" android:onClick="launchMakeReviewACtivity"/>
+            app:layout_constraintVertical_bias="0.976"
+    />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,12 @@
 package com.example.dssmv_projectdroid_1220971_1220918.ui;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
@@ -28,6 +32,7 @@ public class ReviewsActivity extends AppCompatActivity {
     private String selectedLibraryBookIsbn;
     private String selectedLibraryId;
     private String selectedLibraryName;
+    private String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,9 @@ public class ReviewsActivity extends AppCompatActivity {
         selectedLibraryId = intent.getStringExtra("selectedLibraryId");
         selectedLibraryName = intent.getStringExtra("selectedLibraryName");
 
+        SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        userName = preferences.getString("userName", "defaultValue");
+
         reviewsList = new ArrayList<>();
         lv = (ListView) findViewById(R.id.listViewReviews);
 
@@ -48,22 +56,22 @@ public class ReviewsActivity extends AppCompatActivity {
         lv.setAdapter(adapter);
         registerForContextMenu(lv);
 
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        Button reviewButton = (Button) findViewById(R.id.createReviewButton);
+        reviewButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Review selectedItem = null;
-                for (Review item : reviewsList) {
-                    if (item.getId() != null && item.getId().toLowerCase().equals(reviewsList.get(position).getId().toLowerCase())) {
-                        selectedItem = item;
+            public void onClick(View v) {
+                Intent i = new Intent(ReviewsActivity.this, MakeReviewActivity.class);
+                i.putExtra("selectedLibraryBookIsbn", selectedLibraryBookIsbn);
+
+                for (Review review : reviewsList) {
+                    if(review != null && review.getReviewer().equals(userName)) {
+                        i.putExtra("reviewId", review.getId());
                         break;
+                    } else {
+                        i.putExtra("reviewId", "null");
                     }
                 }
-                if (selectedItem != null) {
-                    Intent intent = new Intent(ReviewsActivity.this, MakeReviewActivity.class);
-                    intent.putExtra("selectedLibraryBookIsbn", selectedLibraryBookIsbn);
-                    startActivity(intent);
-                }
-                return true;
+                startActivity(i);
             }
         });
     }
@@ -91,12 +99,6 @@ public class ReviewsActivity extends AppCompatActivity {
                 });
             }
         }.start();
-    }
-
-    public void launchMakeReviewACtivity(View v) {
-        Intent intent = new Intent(this, MakeReviewActivity.class);
-        intent.putExtra("selectedLibraryBookIsbn", selectedLibraryBookIsbn);
-        startActivity(intent);
     }
 
     public void backMainActivity(View v) {

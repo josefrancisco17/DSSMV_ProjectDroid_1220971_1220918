@@ -119,7 +119,6 @@ public class RequestsService {
                 String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkout" + "?userId=" + userName;
                 String body = " ";
                 String result = NetworkHandler.addDataInStringFromUrl(url, body);
-                //Toast.makeText(activity, "Succefully Checkout ", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 e.printStackTrace();
                 activity.runOnUiThread(new Runnable() {
@@ -141,7 +140,6 @@ public class RequestsService {
                 String url = BaseUrl + "library/" + libraryId + "/book/" + bookIsbn + "/checkin" + "?userId=" + userName;
                 String body = " ";
                 String result = NetworkHandler.addDataInStringFromUrl(url, body);
-                //Toast.makeText(activity, "Succefully CheckedIn ", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 e.printStackTrace();
                 activity.runOnUiThread(new Runnable() {
@@ -162,14 +160,33 @@ public class RequestsService {
             String url = BaseUrl + "book/" + bookIsbn + "/review?userId=" + userName;
             String body = "{\"recommended\": " + recommended + ", \"review\": \"" + reviewText + "\"}";
             String result = NetworkHandler.addDataInStringFromUrl(url, body);
-            Toast.makeText(activity, "Succefully Posted Review ", Toast.LENGTH_LONG).show();
         } catch (Exception e) {
             e.printStackTrace();
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
                     if (e.toString().contains("400")) {
-                        Toast.makeText(activity, "You cannot submit a multiple reviews for the same book", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, "Can only post one Review", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(activity,  e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    public static void updateReviewBook(Activity activity, String bookIsbn, String userName, String reviewText, boolean recommended, String reviewId) {
+        try {
+            String url = BaseUrl + "book/" + bookIsbn + "/review/" + reviewId + "?userId=" + userName;
+            String body = "{\"recommended\": " + recommended + ", \"review\": \"" + reviewText + "\"}";
+            String result = NetworkHandler.updateDataInStringFromUrl(url, body);
+        } catch (Exception e) {
+            e.printStackTrace();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (e.toString().contains("400")) {
+                        Toast.makeText(activity, "Error Updating Review", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(activity,  e.toString(), Toast.LENGTH_SHORT).show();
                     }
