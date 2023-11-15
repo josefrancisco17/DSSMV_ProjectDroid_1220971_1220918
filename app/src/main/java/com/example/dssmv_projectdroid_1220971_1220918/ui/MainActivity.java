@@ -3,7 +3,6 @@ package com.example.dssmv_projectdroid_1220971_1220918.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -92,17 +91,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void launchMyReviewsActivity(View v) {
-        Intent i = new Intent(this, MyReviewsActivity.class);
+        Intent i = new Intent(this, HistoryActivity.class);
         startActivity(i);
     }
 
     public void launchCheckInActivity(View v) {
         Intent i = new Intent(this, CheckInActivity.class);
-        startActivity(i);
-    }
-
-    public void launchHistoryActivity(View v) {
-        Intent i = new Intent(this, HistoryActivity.class);
         startActivity(i);
     }
 

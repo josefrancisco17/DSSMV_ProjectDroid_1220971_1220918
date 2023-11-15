@@ -20,7 +20,7 @@
                 android:name=".ui.MakeReviewActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.MyReviewsActivity"
+                android:name=".ui.HistoryActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.MainActivity"
@@ -36,9 +36,6 @@
                 android:exported="false"/>
         <activity
                 android:name=".ui.SettingsActivity"
-                android:exported="false"/>
-        <activity
-                android:name=".ui.HistoryActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.ReviewsActivity"

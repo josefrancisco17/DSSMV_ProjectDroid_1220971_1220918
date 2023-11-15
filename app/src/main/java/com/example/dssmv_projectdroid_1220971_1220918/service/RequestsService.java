@@ -95,6 +95,25 @@ public class RequestsService {
                 return null;
         }
 
+        public static List<Checkout> getCheckOutsHistoryList(Activity activity, String userName) {
+            try {
+                String url = BaseUrl + "user/checkout-history?userId=" + userName;
+                String json = NetworkHandler.getDataInStringFromUrl(url);
+                List<CheckoutDTO> LibraryBooksDTOList = JsonHandler.deSerializeJson2ListCheckOutDTO(json);
+                List<Checkout> checkoutsList = Mapper.listcheckoutDTO2listcheckout(LibraryBooksDTOList);
+                return checkoutsList;
+            }  catch(Exception e){
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity," " + e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            return null;
+        }
+
         public static List<Review> getReviewsList(Activity activity, String bookIsbn) {
             try {
                 String url = BaseUrl + "book/" + bookIsbn + "/review";
