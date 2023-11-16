@@ -281,4 +281,16 @@ public class JsonHandler {
         }
         return stringList;
     }
+
+    public static String deSerializeJson2Weather(String json) throws JSONException {
+        JSONObject jsonObject = new JSONObject(json);
+
+        JSONObject mainObject = jsonObject.getJSONObject("main");
+        double temperature = mainObject.getDouble("temp");
+        temperature = (temperature - 273.15);
+        temperature = Math.round(temperature * 10.0) / 10.0;
+
+        String cityName = jsonObject.getString("name");
+        return cityName + ", " + temperature + " ºC";
+    }
 }

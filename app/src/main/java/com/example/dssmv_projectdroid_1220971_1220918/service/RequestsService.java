@@ -213,4 +213,22 @@ public class RequestsService {
             });
         }
     }
+
+    public static String  getWeather(Activity activity, String latitude, String longitude, String apikey) {
+        try {
+            String url = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&apikey=" + apikey;
+            String json = NetworkHandler.getDataInStringFromUrl(url);
+            String weather = JsonHandler.deSerializeJson2Weather(json);
+            return weather;
+        }  catch(Exception e){
+            e.printStackTrace();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(activity," " + e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        return null;
+    }
 }
