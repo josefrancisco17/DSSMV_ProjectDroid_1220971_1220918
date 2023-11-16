@@ -52,7 +52,7 @@ public class SearchLibraryActivity extends AppCompatActivity {
                     }
                 }
                 if (selectedLibrary != null) {
-                    Toast.makeText(SearchLibraryActivity.this, "Clicked: " + selectedLibrary.getName(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(SearchLibraryActivity.this,  selectedLibrary.getName(), Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(SearchLibraryActivity.this, SearchBookActivity.class);
                     i.putExtra("selectedLibraryId", selectedLibrary.getId());
                     startActivity(i);

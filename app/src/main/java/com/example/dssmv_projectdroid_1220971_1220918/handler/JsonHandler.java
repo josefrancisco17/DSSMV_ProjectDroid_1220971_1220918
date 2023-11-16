@@ -1,10 +1,7 @@
 package com.example.dssmv_projectdroid_1220971_1220918.handler;
 
 import android.util.Log;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.BookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.CheckoutDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryBookDTO;
-import com.example.dssmv_projectdroid_1220971_1220918.dto.LibraryDTO;
+import com.example.dssmv_projectdroid_1220971_1220918.dto.*;
 import com.example.dssmv_projectdroid_1220971_1220918.models.*;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -255,6 +252,26 @@ public class JsonHandler {
         return list;
     }
 
+    public static List<ReviewDTO> deSerializeJson2ListReviewDTO(String json) throws JSONException {
+        JSONArray jsonResponse = new JSONArray(json);
+        List<ReviewDTO> list = new ArrayList<>();
+
+        for (int i = 0; i < jsonResponse.length(); i++) {
+            JSONObject jsonChildNode = jsonResponse.getJSONObject(i);
+
+            String createdDate = jsonChildNode.optString("createdDate");
+            String id = jsonChildNode.optString("id");
+            String isbn = jsonChildNode.optString("isbn");
+            boolean recommended = jsonChildNode.optBoolean("recommended");
+            String review = jsonChildNode.optString("review");
+            String reviewer = jsonChildNode.optString("reviewer");
+
+            list.add(new ReviewDTO(createdDate, id, isbn, recommended, review, reviewer));
+        }
+
+        return list;
+    }
+
     private static List<String> extractStringList(JSONArray jsonArray) {
         List<String> stringList = new ArrayList<>();
         if (jsonArray != null) {
@@ -263,5 +280,17 @@ public class JsonHandler {
             }
         }
         return stringList;
+    }
+
+    public static String deSerializeJson2Weather(String json) throws JSONException {
+        JSONObject jsonObject = new JSONObject(json);
+
+        JSONObject mainObject = jsonObject.getJSONObject("main");
+        double temperature = mainObject.getDouble("temp");
+        temperature = (temperature - 273.15);
+        temperature = Math.round(temperature * 10.0) / 10.0;
+
+        String cityName = jsonObject.getString("name");
+        return cityName + ", " + temperature + " ºC";
     }
 }

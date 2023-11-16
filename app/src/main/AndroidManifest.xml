@@ -3,6 +3,8 @@
           xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
             android:allowBackup="true"
@@ -17,6 +19,12 @@
             android:usesCleartextTraffic="true"
             tools:targetApi="31">
         <activity
+                android:name=".ui.MakeReviewActivity"
+                android:exported="false"/>
+        <activity
+                android:name=".ui.HistoryActivity"
+                android:exported="false"/>
+        <activity
                 android:name=".ui.MainActivity"
                 android:exported="false"/>
         <activity
@@ -27,12 +35,6 @@
                 android:exported="false"/>
         <activity
                 android:name=".ui.SearchBookActivity"
-                android:exported="false"/>
-        <activity
-                android:name=".ui.SettingsActivity"
-                android:exported="false"/>
-        <activity
-                android:name=".ui.HistoryActivity"
                 android:exported="false"/>
         <activity
                 android:name=".ui.ReviewsActivity"

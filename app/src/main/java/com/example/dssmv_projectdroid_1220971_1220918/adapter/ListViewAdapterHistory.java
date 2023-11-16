@@ -8,18 +8,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.example.dssmv_projectdroid_1220971_1220918.R;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
 import java.util.List;
 
-public class ListViewAdapterCheckOut extends BaseAdapter {
+public class ListViewAdapterHistory extends BaseAdapter {
 
     private Context context;
     private List<Checkout> items;
 
-    public ListViewAdapterCheckOut(Context context, List<Checkout> items) {
+    public ListViewAdapterHistory(Context context, List<Checkout> items) {
         this.context = context;
         this.items = items;
     }

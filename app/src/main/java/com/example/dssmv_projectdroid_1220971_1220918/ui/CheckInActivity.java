@@ -58,10 +58,7 @@ public class CheckInActivity extends AppCompatActivity {
                     }
                 }
                 if (selectedItem != null) {
-                    Toast.makeText(CheckInActivity.this, "Clicked: " + selectedItem.getBook().getBook().getTitle(), Toast.LENGTH_LONG).show();
                     postCheckInBooktoWs(CheckInActivity.this, selectedItem.getBook().getLibrary().getId(), selectedItem.getBook().getIsbn(), userName);
-                    Intent intent = new Intent(CheckInActivity.this, MainActivity.class);
-                    startActivity(intent);
                 }
             }
         });
@@ -77,7 +74,6 @@ public class CheckInActivity extends AppCompatActivity {
                     }
                 }
                 if (selectedItem != null) {
-                    Toast.makeText(CheckInActivity.this, "Clicked: " + selectedItem.getBook().getBook().getTitle(), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(CheckInActivity.this, BookActivity.class);
                     intent.putExtra("selectedLibraryBookIsbn", selectedItem.getBook().getIsbn());
                     startActivity(intent);
