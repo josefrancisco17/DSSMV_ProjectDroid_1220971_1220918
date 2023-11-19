@@ -11,12 +11,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
-import androidx.activity.result.ActivityResultLauncher;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import com.example.dssmv_projectdroid_1220971_1220918.R;
 import com.example.dssmv_projectdroid_1220971_1220918.adapter.ListViewAdapterLibrary;
-import com.example.dssmv_projectdroid_1220971_1220918.models.Checkout;
 import com.example.dssmv_projectdroid_1220971_1220918.models.Library;
 import com.example.dssmv_projectdroid_1220971_1220918.service.RequestsService;
 import com.example.dssmv_projectdroid_1220971_1220918.utils.JsonUtils;
@@ -31,14 +29,9 @@ public class MainActivity extends AppCompatActivity {
     private ListView lv;
     private List<Library> librariesList;
     private ListViewAdapterLibrary adapter;
-    private ActivityResultLauncher<Intent> someActivityResultLauncher;
-
     private Button buttonRefreshLibraries;
-
     private Button logOut;
-
     private String userName;
-
     private boolean isLoggedIn;
     private String weather = " ";
     private String weatherApiKey;
@@ -139,21 +132,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void getWeatherData() {
-        new Thread() {
-            public void run() {
-                weather = RequestsService.getWeather(MainActivity.this, latitude, longitude, weatherApiKey);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        TextView tvweather = (TextView) findViewById(R.id.textViewWeather);
-                        tvweather.setText(weather);
-                    }
-                });
-            }
-        }.start();
-    }
-
     private void getLibrariesFromWs() {
         new Thread() {
             public void run() {
@@ -179,6 +157,21 @@ public class MainActivity extends AppCompatActivity {
         }.start();
     }
 
+    private void getWeatherData() {
+        new Thread() {
+            public void run() {
+                weather = RequestsService.getWeather(MainActivity.this, latitude, longitude, weatherApiKey);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView tvweather = (TextView) findViewById(R.id.textViewWeather);
+                        tvweather.setText(weather);
+                    }
+                });
+            }
+        }.start();
+    }
+
     public void launchLibrariesActivity(View v) {
         Intent i = new Intent(this, SearchLibraryActivity.class);
         startActivity(i);
@@ -194,4 +187,3 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 }
-
