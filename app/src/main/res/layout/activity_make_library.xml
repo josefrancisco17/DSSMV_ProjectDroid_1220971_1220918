@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MakeLibraryActivity">
+
+    <Button
+            android:text="Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/backMakeLibraryButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.049" app:layout_constraintVertical_bias="0.023"/>
+    <TextView
+            android:layout_width="323dp"
+            android:layout_height="60dp" android:id="@+id/textView16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_bias="0.177" android:text="Please complete the form bellow:"
+            android:textStyle="bold" android:textAllCaps="false" android:textAlignment="center"
+            android:textSize="20sp" app:layout_constraintHorizontal_bias="0.693"/>
+    <Button
+            android:text="Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/submitMakeLibraryButton"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.477" app:layout_constraintVertical_bias="0.915"/>
+    <TextView
+            android:text="Name: "
+            android:layout_width="99dp"
+            android:layout_height="48dp" android:id="@+id/textView17"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.176" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.297"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:text=""
+            android:ems="10"
+            android:id="@+id/libraryNameMakeLibraryinput"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.895" android:hint="ISEP Library"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.3"/>
+    <TextView
+            android:text="Addresss: "
+            android:layout_width="95dp"
+            android:layout_height="40dp" android:id="@+id/textView19"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.174" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.393"/>
+    <TextView
+            android:text="Close Time: "
+            android:layout_width="91dp"
+            android:layout_height="43dp" android:id="@+id/textView20"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.19" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.555"/>
+    <TextView
+            android:text="Open Time: "
+            android:layout_width="99dp"
+            android:layout_height="40dp" android:id="@+id/textView21"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.169" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.479"/>
+    <TextView
+            android:text="Open Days: "
+            android:layout_width="97dp"
+            android:layout_height="45dp" android:id="@+id/textView23"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.175" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.65"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/libraryAddressMakeLibraryinput"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.89"
+            android:hint="R. Dr. António Bernardino de Almeida 431, 4249-015 Porto"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.389"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:id="@+id/libraryOpenDaysMakeLibraryinput"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.89" android:hint="Everyday"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.65"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            android:ems="10"
+            android:id="@+id/libraryOpenTimeMakeLibraryinput"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.895" app:layout_constraintVertical_bias="0.475"
+            android:hint="08:00:00"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="time"
+            android:ems="10"
+            android:id="@+id/libraryCloseTimeMakeLibraryinput"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.92"
+            app:layout_constraintVertical_bias="0.556" android:hint="22:00:00"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
