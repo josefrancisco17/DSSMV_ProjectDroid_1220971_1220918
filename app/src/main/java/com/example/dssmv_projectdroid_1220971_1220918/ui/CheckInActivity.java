@@ -76,6 +76,8 @@ public class CheckInActivity extends AppCompatActivity {
                 if (selectedItem != null) {
                     Intent intent = new Intent(CheckInActivity.this, BookActivity.class);
                     intent.putExtra("selectedLibraryBookIsbn", selectedItem.getBook().getIsbn());
+                    intent.putExtra("selectedLibraryId", selectedItem.getBook().getLibrary().getId());
+                    intent.putExtra("selectedLibraryName", selectedItem.getBook().getLibrary().getName());
                     startActivity(intent);
                 }
                 return true;
