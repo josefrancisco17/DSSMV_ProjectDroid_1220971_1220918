@@ -9,6 +9,7 @@ import com.example.dssmv_projectdroid_1220971_1220918.handler.NetworkHandler;
 import com.example.dssmv_projectdroid_1220971_1220918.models.*;
 import com.example.dssmv_projectdroid_1220971_1220918.ui.BookActivity;
 import com.example.dssmv_projectdroid_1220971_1220918.ui.CheckInActivity;
+import com.example.dssmv_projectdroid_1220971_1220918.ui.DeleteLibraryActivity;
 import org.json.JSONException;
 
 import java.io.IOException;
@@ -210,6 +211,26 @@ public class RequestsService {
         }
     }
 
+    public static void postLibrary(Activity activity, String name, String address, String openTime, String closeTime, String openDays) {
+        try {
+            String url = BaseUrl + "library";
+            String body = "{\"address\": \"" + address + "\", \"closeTime\": \"" + closeTime + "\", \"name\": \"" + name + "\", \"openDays\": \"" + openDays + "\", \"openTime\": \"" + openTime + "\"}";
+            String result = NetworkHandler.addDataInStringFromUrl(url, body);
+        } catch (Exception e) {
+            e.printStackTrace();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (e.toString().contains("400")) {
+                        Toast.makeText(activity, "postLibrary", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(activity,  e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
     public static void updateReviewBook(Activity activity, String bookIsbn, String userName, String reviewText, boolean recommended, String reviewId) {
         try {
             String url = BaseUrl + "book/" + bookIsbn + "/review/" + reviewId + "?userId=" + userName;
@@ -224,6 +245,25 @@ public class RequestsService {
                         Toast.makeText(activity, "Error Updating Review", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(activity,  e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
+    public static void deleteLibrary(Activity activity, String libraryId) {
+        try {
+            String url = BaseUrl + "library/" + libraryId;
+            boolean result = NetworkHandler.deleteDataInStringFromUrl(url);
+        } catch (Exception e) {
+            e.printStackTrace();
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (e.toString().contains("202")) {
+                        Toast.makeText(activity, "Successfully Deleted", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(activity, "Error Deleting Library", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

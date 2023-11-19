@@ -132,21 +132,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void getWeatherData() {
-        new Thread() {
-            public void run() {
-                weather = RequestsService.getWeather(MainActivity.this, latitude, longitude, weatherApiKey);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        TextView tvweather = (TextView) findViewById(R.id.textViewWeather);
-                        tvweather.setText(weather);
-                    }
-                });
-            }
-        }.start();
-    }
-
     private void getLibrariesFromWs() {
         new Thread() {
             public void run() {
@@ -166,6 +151,21 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        }.start();
+    }
+
+    private void getWeatherData() {
+        new Thread() {
+            public void run() {
+                weather = RequestsService.getWeather(MainActivity.this, latitude, longitude, weatherApiKey);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        TextView tvweather = (TextView) findViewById(R.id.textViewWeather);
+                        tvweather.setText(weather);
                     }
                 });
             }

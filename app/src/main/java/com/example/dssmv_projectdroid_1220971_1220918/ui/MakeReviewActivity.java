@@ -28,7 +28,6 @@ public class MakeReviewActivity extends AppCompatActivity {
         Intent intent = getIntent();
         selectedLibraryBookIsbn = intent.getStringExtra("selectedLibraryBookIsbn");
         reviewId = intent.getStringExtra("reviewId");
-        Log.d("ReviewIdMake",reviewId);
 
         SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         userName = preferences.getString("userName", "defaultValue");
@@ -41,10 +40,8 @@ public class MakeReviewActivity extends AppCompatActivity {
                 TextView reviewText = (TextView) findViewById(R.id.textInputReview);
                 Switch recommended = (Switch) findViewById(R.id.switchRecommended);
                 if (reviewId.equals("null")) {
-                    Log.d("ReviewPost", reviewId);
                     postReviewtoWs(MakeReviewActivity.this, selectedLibraryBookIsbn, userName,reviewText.getText().toString(),recommended.isChecked());
                 } else {
-                    Log.d("Update", reviewId);
                     updateReviewToWs(MakeReviewActivity.this, selectedLibraryBookIsbn, userName, reviewText.getText().toString(),recommended.isChecked(), reviewId);
                 }
             }

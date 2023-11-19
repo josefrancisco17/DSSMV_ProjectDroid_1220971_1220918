@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -38,17 +39,24 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userName = ((TextView) findViewById(R.id.inputTextUserName)).getText().toString();
-                if (userName.isEmpty()) {
-                    userName = "Wonderful User";
-                }
-                SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("userName", userName);
-                editor.putBoolean("isLoggedIn", true);
-                editor.apply();
+                if(userName.equals("admin")) {
+                    Log.d("name",userName);
+                    Intent i = new Intent(LoginActivity.this, AdminActivity.class);
+                    startActivity(i);
+                } else {
+                    if (userName.isEmpty()) {
+                        userName = "Wonderful User";
+                    }
 
-                Intent i = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(i);
+                    SharedPreferences preferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("userName", userName);
+                    editor.putBoolean("isLoggedIn", true);
+                    editor.apply();
+
+                    Intent i = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(i);
+                }
             }
         });
     }
