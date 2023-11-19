@@ -38,7 +38,6 @@ public class BookActivity extends AppCompatActivity {
         selectedLibraryId = intent.getStringExtra("selectedLibraryId");
         selectedLibraryName = intent.getStringExtra("selectedLibraryName");
 
-        book = RequestsService.getBook(this, selectedLibraryBookIsbn);
         getBookFromWs();
 
         Button checkOutButton = (Button) findViewById(R.id.CheckOutButton);
@@ -52,12 +51,6 @@ public class BookActivity extends AppCompatActivity {
 
     private void getBookFromWs() {
         new Thread(() -> {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    //
-                }
-            });
             Book selectedBook = RequestsService.getBook(BookActivity.this, selectedLibraryBookIsbn);
             if (selectedBook  == null){
                 return;
