@@ -61,4 +61,8 @@ public class Mapper {
     public static Book bookDTO2book(BookDTO obj){
         return new Book(obj.getAuthors(), obj.getByStatement(), obj.getCover(), obj.getDescription(), obj.getIsbn(), obj.getNumberOfPages(), obj.getPublishDate(), obj.getSubjectPeople(), obj.getSubjectPlaces(), obj.getSubjectTimes(), obj.getSubjects(), obj.getTitle());
     }
+
+    public static Library libraryDTO2library(LibraryDTO obj){
+        return new Library(obj.getAddress(), obj.getCloseTime(), obj.getId(), obj.getName(), obj.isOpen(), obj.getOpenDays(), obj.getOpenStatement(), obj.getOpenTime());
+    }
 }

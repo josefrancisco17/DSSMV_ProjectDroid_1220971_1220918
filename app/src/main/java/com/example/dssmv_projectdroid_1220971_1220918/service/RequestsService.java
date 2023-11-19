@@ -54,15 +54,12 @@ public class RequestsService {
             return null;
         }
 
-        public static Book getBook(Activity activity, String bookIsbn){
+        public static Book getBook(Activity activity, String bookIsbn) {
             try {
                 String url = BaseUrl + "book/" + bookIsbn;
                 String json = NetworkHandler.getDataInStringFromUrl(url);
-                Log.d("json", json);
                 BookDTO bookDTO = JsonHandler.deSerializeJson2BookDTO(json);
-                Log.d("BookDTO", bookDTO.toString());
                 Book book = Mapper.bookDTO2book(bookDTO);
-                Log.d("Book", book.toString());
                 return book;
             }  catch(Exception e){
                 e.printStackTrace();
@@ -70,6 +67,25 @@ public class RequestsService {
                     @Override
                     public void run() {
                         Toast.makeText(activity,"getBook Error" + e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+            return null;
+        }
+
+        public static Library getLibrary(Activity activity, String libraryId) {
+            try {
+                String url = BaseUrl + "library/" + libraryId;
+                String json = NetworkHandler.getDataInStringFromUrl(url);
+                LibraryDTO libraryDTO = JsonHandler.deSerializeJson2LibraryDTO(json);
+                Library library = Mapper.libraryDTO2library(libraryDTO);
+                return library;
+            }  catch(Exception e){
+                e.printStackTrace();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(activity,"getLibrary Error" + e.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

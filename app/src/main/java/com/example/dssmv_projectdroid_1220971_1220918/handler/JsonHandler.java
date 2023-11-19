@@ -173,6 +173,20 @@ public class JsonHandler {
         return list;
     }
 
+    public static LibraryDTO deSerializeJson2LibraryDTO(String json) throws JSONException {
+        JSONObject jsonObject = new JSONObject(json);
+        String id = jsonObject.getString("id");
+        String name = jsonObject.getString("name");
+        String address = jsonObject.getString("address");
+        String openTime = jsonObject.getString("openTime");
+        String closeTime = jsonObject.getString("closeTime");
+        String openDays = jsonObject.getString("openDays");
+        String openStatement = jsonObject.getString("openStatement");
+        String open = jsonObject.getString("open");
+        LibraryDTO libraryDTO = new LibraryDTO(address, closeTime, id, name, open, openDays, openStatement, openTime);
+        return libraryDTO;
+    }
+
     public static List<CheckoutDTO> deSerializeJson2ListCheckOutDTO(String json) throws JSONException {
         JSONArray jsonResponse = new JSONArray(json);
         List<CheckoutDTO> list = new ArrayList<>();
@@ -290,7 +304,11 @@ public class JsonHandler {
         temperature = (temperature - 273.15);
         temperature = Math.round(temperature * 10.0) / 10.0;
 
+        JSONArray weatherArray = jsonObject.getJSONArray("weather");
+        JSONObject weatherObject = weatherArray.getJSONObject(0);
+        String weather = weatherObject.getString("main");
+
         String cityName = jsonObject.getString("name");
-        return cityName + ", " + temperature + " ºC";
+        return cityName + ", " + weather + "," + temperature + " ºC";
     }
 }
