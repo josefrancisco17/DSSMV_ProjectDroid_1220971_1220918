@@ -13,8 +13,8 @@
             android:layout_height="wrap_content" android:id="@+id/backHistoryButton"
             android:onClick="backMainActivity" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.05"
-            app:layout_constraintVertical_bias="0.035"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintVertical_bias="0.023"/>
     <TextView
             android:text="Check Out History"
             android:layout_width="128dp"
@@ -22,7 +22,8 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.946" app:layout_constraintVertical_bias="0.036"
-            android:textAlignment="center" android:textSize="20sp"/>
+            android:textAlignment="center" android:textSize="24sp" android:textStyle="bold"
+            android:fontFamily="serif" android:typeface="normal"/>
     <ListView
             android:layout_width="409dp"
             android:layout_height="651dp"

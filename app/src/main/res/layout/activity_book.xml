@@ -82,16 +82,16 @@
             android:typeface="serif"/>
     <Button
             android:text="CheckOut"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/checkOutButton"
+            android:layout_width="137dp"
+            android:layout_height="80dp" android:id="@+id/checkOutButton"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.24" app:layout_constraintVertical_bias="0.923"/>
+            app:layout_constraintHorizontal_bias="0.211" app:layout_constraintVertical_bias="0.955"/>
     <Button
             android:text="Reviews"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/reviewButton"
+            android:layout_width="146dp"
+            android:layout_height="83dp" android:id="@+id/reviewButton"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.759" app:layout_constraintVertical_bias="0.923"/>
+            app:layout_constraintHorizontal_bias="0.837" app:layout_constraintVertical_bias="0.955"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
