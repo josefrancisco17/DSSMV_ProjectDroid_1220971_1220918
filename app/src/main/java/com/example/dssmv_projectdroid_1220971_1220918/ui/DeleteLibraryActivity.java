@@ -94,7 +94,6 @@ public class DeleteLibraryActivity extends AppCompatActivity {
         new Thread() {
             public void run() {
                 RequestsService.deleteLibrary(DeleteLibraryActivity.this, libraryId);
-
             }
         }.start();
     }

@@ -33,16 +33,6 @@ public class AdminActivity extends AppCompatActivity {
            }
         });
 
-        Button adminUpdateLibraryButton = (Button) findViewById(R.id.adminUpdateLibraryButton);
-
-        adminUpdateLibraryButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AdminActivity.this, UpdateLibraryActivity.class);
-                startActivity(i);
-            }
-        });
-
         Button adminDeleteLibraryButton = (Button) findViewById(R.id.adminDeleteLibraryButton);
 
         adminDeleteLibraryButton.setOnClickListener(new View.OnClickListener(){
@@ -58,19 +48,9 @@ public class AdminActivity extends AppCompatActivity {
         adminCreateBookButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //
-            }
-        });
-
-        Button adminUpdateBookButton = (Button) findViewById(R.id.adminUpdateBookButton);
-
-        adminUpdateBookButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //
+                Intent i = new Intent(AdminActivity.this, MakeBookActivity.class);
+                startActivity(i);
             }
         });
     }
-
-
 }

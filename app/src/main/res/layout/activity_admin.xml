@@ -24,21 +24,13 @@
             app:layout_constraintVertical_bias="0.313" android:backgroundTint="#2196F3" android:textColor="#141414"
             android:textStyle="bold" android:textSize="16sp"/>
     <Button
-            android:text="Update"
-            android:layout_width="270dp"
-            android:layout_height="60dp" android:id="@+id/adminUpdateLibraryButton"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.398" android:backgroundTint="#CDDC39" android:textColor="#141414"
-            android:textStyle="bold" android:textSize="16sp"/>
-    <Button
             android:text="Delete"
             android:layout_width="270dp"
             android:layout_height="60dp" android:id="@+id/adminDeleteLibraryButton"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.481" android:backgroundTint="#F44336" android:textColor="#141414"
-            android:textStyle="bold" android:textSize="16sp"/>
+            app:layout_constraintVertical_bias="0.402" android:backgroundTint="#F44336" android:textColor="#141414"
+            android:textStyle="bold" android:textSize="16sp" app:layout_constraintHorizontal_bias="0.496"/>
     <TextView
             android:text="Libraries"
             android:layout_width="270dp"
@@ -66,15 +58,6 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintVertical_bias="0.631"
             android:backgroundTint="#2196F3" android:textStyle="bold" android:textColor="#141414"
             android:textSize="16sp"/>
-    <Button
-            android:text="Update"
-            android:layout_width="270dp"
-            android:layout_height="60dp" android:id="@+id/adminUpdateBookButton"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.496" app:layout_constraintVertical_bias="0.721"
-            android:backgroundTint="#CDDC39" android:textSize="16sp" android:textStyle="bold"
-            android:textColor="#141414"/>
     <Button
             android:text="Log out"
             android:layout_width="wrap_content"

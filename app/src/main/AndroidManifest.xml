@@ -23,9 +23,6 @@
                 android:name=".ui.DeleteLibraryActivity"
                 android:exported="false"/>
         <activity
-                android:name=".ui.UpdateLibraryActivity"
-                android:exported="false"/>
-        <activity
                 android:name=".ui.MakeBookActivity"
                 android:exported="false"/>
         <activity
