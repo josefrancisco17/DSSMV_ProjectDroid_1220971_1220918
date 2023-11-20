@@ -14,7 +14,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.023"
-            android:onClick="backMainActivity" android:textColor="#EEEEEE"/>
+            android:onClick="backMainActivity" android:textColor="#EEEEEE" android:backgroundTint="#393E46"/>
     <TextView
             android:text="Reviews"
             android:layout_width="136dp"
@@ -38,5 +38,5 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.976"
-            android:textColor="#EEEEEE"/>
+            android:textColor="#EEEEEE" android:textSize="20sp" android:backgroundTint="#00ADB5"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

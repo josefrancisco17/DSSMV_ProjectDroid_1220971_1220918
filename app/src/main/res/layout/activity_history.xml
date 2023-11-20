@@ -14,14 +14,14 @@
             android:onClick="backMainActivity" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.049"
-            app:layout_constraintVertical_bias="0.023" android:textColor="#EEEEEE"/>
+            app:layout_constraintVertical_bias="0.023" android:textColor="#EEEEEE" android:backgroundTint="#393E46"/>
     <TextView
             android:text="Check Out History"
             android:layout_width="247dp"
             android:layout_height="65dp" android:id="@+id/textView2"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.024"
+            app:layout_constraintHorizontal_bias="0.993" app:layout_constraintVertical_bias="0.04"
             android:textAlignment="center" android:textSize="24sp" android:textStyle="bold"
             android:fontFamily="serif" android:typeface="normal" android:textColor="#EEEEEE"/>
     <ListView
