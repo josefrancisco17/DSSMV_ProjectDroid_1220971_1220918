@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MainActivity" android:layout_marginTop="10dp">
+        tools:context=".ui.MainActivity" android:layout_marginTop="10dp" android:background="#141414">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="55dp" android:id="@+id/constraintLayout3" app:layout_constraintTop_toTopOf="parent">
@@ -17,21 +17,24 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintVertical_bias="0.555" android:textSize="34sp" android:typeface="serif"/>
+                app:layout_constraintVertical_bias="0.555" android:textSize="34sp" android:typeface="serif"
+                android:textColor="#EEEEEE"/>
         <Button
                 android:text="refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/buttonRefreshLibraries"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.977" app:layout_constraintVertical_bias="0.857"/>
+                app:layout_constraintHorizontal_bias="0.977" app:layout_constraintVertical_bias="0.857"
+                android:textColor="#EEEEEE"/>
         <Button
                 android:text="Log out"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/logOutButton"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.857"/>
+                app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.857"
+                android:textColor="#EEEEEE"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <ListView
             android:layout_width="373dp"
@@ -46,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/constraintLayout"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="1.0"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:background="#141414">
+            android:background="#222831">
         <ImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp" app:srcCompat="?android:attr/actionModeFindDrawable"
@@ -83,13 +86,14 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.068"
             app:layout_constraintVertical_bias="0.085" android:textSize="16sp" android:textAlignment="textStart"
-            android:textStyle="bold"/>
+            android:textStyle="bold" android:textColor="#EEEEEE"/>
     <TextView
             android:layout_width="189dp"
             android:layout_height="45dp" android:id="@+id/textViewWeather"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.927"
-            app:layout_constraintVertical_bias="0.081" android:textAlignment="textEnd"/>
+            app:layout_constraintVertical_bias="0.081" android:textAlignment="textEnd" android:textColor="#EEEEEE"
+            android:text="sds"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.MakeBookActivity">
+        tools:context=".ui.MakeBookActivity" android:background="#141414">
 
     <Button
             android:text="Back"
@@ -13,7 +13,8 @@
             android:layout_height="wrap_content" android:id="@+id/backButtonMakeBook"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.023"/>
+            app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.023"
+            android:textColor="#EEEEEE"/>
     <TextView
             android:text="Create Book"
             android:layout_width="158dp"
@@ -22,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.936"
             app:layout_constraintVertical_bias="0.023" android:textSize="24sp" android:textStyle="bold"
-            android:textAlignment="center"/>
+            android:textAlignment="center" android:textColor="#EEEEEE"/>
     <TextView
             android:text="Select a Library"
             android:layout_width="314dp"
@@ -30,7 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.494"
-            app:layout_constraintVertical_bias="0.129" android:textAlignment="center"/>
+            app:layout_constraintVertical_bias="0.129" android:textAlignment="center" android:textColor="#EEEEEE"/>
     <androidx.appcompat.widget.SearchView
             android:layout_width="401dp"
             android:layout_height="30dp"
@@ -52,7 +53,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintVertical_bias="0.535" android:textAlignment="center"
-    />
+            android:textColor="#EEEEEE"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,7 +62,8 @@
             android:id="@+id/bookIsbnInputMakeBook"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.517" app:layout_constraintVertical_bias="0.593"/>
+            app:layout_constraintHorizontal_bias="0.517" app:layout_constraintVertical_bias="0.593"
+            android:textColor="#EEEEEE" android:hint="9780735211292" android:textColorHint="#EEEEEE"/>
     <TextView
             android:text="Book Stock:"
             android:layout_width="95dp"
@@ -69,7 +71,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.678" android:textAlignment="center"/>
+            app:layout_constraintVertical_bias="0.678" android:textAlignment="center" android:textColor="#EEEEEE"/>
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,12 +80,14 @@
             android:id="@+id/bookStockInputMakeBook"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.517" app:layout_constraintVertical_bias="0.74"/>
+            app:layout_constraintHorizontal_bias="0.517" app:layout_constraintVertical_bias="0.74"
+            android:textColor="#EEEEEE" android:hint="7" android:textColorHint="#EEEEEE"/>
     <Button
             android:text="Submit"
             android:layout_width="148dp"
             android:layout_height="65dp" android:id="@+id/submitButtonMakeBook"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.891"/>
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.891"
+            android:textColor="#EEEEEE"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
