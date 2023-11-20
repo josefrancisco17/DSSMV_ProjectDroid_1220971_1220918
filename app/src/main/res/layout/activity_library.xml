@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.LibraryActivity">
+        tools:context=".ui.LibraryActivity" android:background="#141414">
 
     <Button
             android:text="Home"
@@ -14,7 +14,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.1" app:layout_constraintVertical_bias="0.023"
-            android:onClick="backMainActivity"/>
+            android:onClick="backMainActivity" android:textColor="#EEEEEE" android:backgroundTint="#393E46"/>
     <TextView
             android:text="Library Name"
             android:layout_width="186dp"
@@ -23,7 +23,7 @@
             android:textSize="24sp" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintVertical_bias="0.236" android:typeface="serif"/>
+            app:layout_constraintVertical_bias="0.236" android:typeface="serif" android:textColor="#EEEEEE"/>
     <TextView
             android:text="Address: "
             android:layout_width="82dp"
@@ -31,7 +31,8 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.237" app:layout_constraintVertical_bias="0.365"
-            android:textAlignment="center" android:textStyle="bold"/>
+            android:textAlignment="center" android:textStyle="bold" android:textSize="16sp"
+            android:textColor="#EEEEEE"/>
     <TextView
             android:text="Close Time: "
             android:layout_width="86dp"
@@ -39,7 +40,8 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.692" app:layout_constraintVertical_bias="0.442"
-            android:textAlignment="center"/>
+            android:textAlignment="center" android:textStyle="bold" android:textSize="16sp"
+            android:textColor="#EEEEEE"/>
     <TextView
             android:text="TextView"
             android:layout_width="93dp"
@@ -47,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.276" app:layout_constraintVertical_bias="0.516"
-            android:textAlignment="center" android:textStyle="bold"/>
+            android:textAlignment="center" android:textColor="#EEEEEE"/>
     <TextView
             android:text="Open Time: "
             android:layout_width="83dp"
@@ -55,7 +57,8 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.268" app:layout_constraintVertical_bias="0.443"
-            android:textAlignment="center" android:textStyle="bold"/>
+            android:textAlignment="center" android:textStyle="bold" android:textSize="16sp"
+            android:textColor="#EEEEEE"/>
     <TextView
             android:text="TextView"
             android:layout_width="89dp"
@@ -63,7 +66,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.689" app:layout_constraintVertical_bias="0.518"
-            android:textAlignment="center"/>
+            android:textAlignment="center" android:textColor="#EEEEEE"/>
     <TextView
             android:text="TextView"
             android:layout_width="231dp"
@@ -71,7 +74,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.362"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart" android:textColor="#EEEEEE"/>
     <TextView
             android:text="Open Days: "
             android:layout_width="108dp"
@@ -80,7 +83,8 @@
             android:layout_marginTop="428dp" app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="268dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="52dp" android:layout_marginEnd="251dp"
-            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center" android:textStyle="bold"/>
+            app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center" android:textStyle="bold"
+            android:textSize="16sp" android:textColor="#EEEEEE"/>
     <TextView
             android:text="TextView"
             android:layout_width="182dp"
@@ -88,7 +92,7 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.825" app:layout_constraintVertical_bias="0.603"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart" android:textColor="#EEEEEE"/>
     <TextView
             android:text="TextView"
             android:layout_width="214dp"
@@ -96,20 +100,21 @@
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.497" app:layout_constraintVertical_bias="0.714"
-            android:textAlignment="center"/>
+            android:textAlignment="center" android:textColor="#EEEEEE"/>
     <TextView
             android:text="Open: "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView22"
+            android:layout_width="53dp"
+            android:layout_height="25dp" android:id="@+id/textView22"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.401" app:layout_constraintVertical_bias="0.789"
-            android:textStyle="bold"/>
+            android:textStyle="bold" android:textSize="16sp" android:textColor="#EEEEEE"/>
     <TextView
             android:text="TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/libraryOpen"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.535" app:layout_constraintVertical_bias="0.789"/>
+            app:layout_constraintHorizontal_bias="0.558" app:layout_constraintVertical_bias="0.79"
+            android:textColor="#EEEEEE"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

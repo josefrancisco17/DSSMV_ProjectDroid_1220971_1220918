@@ -9,14 +9,14 @@
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center" android:background="#141414">
 
     <TextView
             android:id="@+id/textview_reviewer"
             android:text="Reviewer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:textSize="16sp" android:textAllCaps="false"
-            android:textStyle="bold"/>
+            android:textStyle="bold" android:textColor="#EEEEEE"/>
 
     <ScrollView
             android:layout_width="383dp"
@@ -25,12 +25,13 @@
                 android:id="@+id/textview_review"
                 android:text="Review"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" android:textColor="#EEEEEE"/>
     </ScrollView>
 
     <TextView
             android:id="@+id/textview_recommended"
             android:text="Recommended"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:textSize="12sp" android:textStyle="bold"/>
+            android:layout_height="wrap_content" android:textSize="12sp" android:textStyle="bold"
+            android:textColor="#EEEEEE"/>
 </LinearLayout>

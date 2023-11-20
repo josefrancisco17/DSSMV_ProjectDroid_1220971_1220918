@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.BookActivity">
+        tools:context=".ui.BookActivity" android:background="#141414">
 
     <TextView
             android:layout_width="217dp"
@@ -14,15 +14,15 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="0.974" app:layout_constraintVertical_bias="0.151"
             android:textAlignment="center" android:textStyle="bold" android:fontFamily="serif" android:textSize="20sp"
-            android:text="Title"/>
+            android:text="Title" android:textColor="#EEEEEE"/>
     <Button
             android:text="Home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/backBook"
+            android:layout_width="97dp"
+            android:layout_height="54dp" android:id="@+id/backBook"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.05" app:layout_constraintVertical_bias="0.023"
-            android:onClick="backMainActivity"/>
+            android:onClick="backMainActivity" android:backgroundTint="#393E46" android:textColor="#EEEEEE"/>
     <ImageView
             android:layout_width="189dp"
             android:layout_height="243dp" tools:srcCompat="@tools:sample/avatars"
@@ -37,7 +37,7 @@
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.229"
-            android:textAlignment="center"/>
+            android:textAlignment="center" android:textColor="#EEEEEE"/>
     <TextView
             android:text="publishdate"
             android:layout_width="98dp"
@@ -46,7 +46,8 @@
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.623" app:layout_constraintVertical_bias="0.306"/>
+            app:layout_constraintHorizontal_bias="0.623" app:layout_constraintVertical_bias="0.306"
+            android:textColor="#EEEEEE"/>
     <TextView
             android:text="numberofpages"
             android:layout_width="118dp"
@@ -55,7 +56,8 @@
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.304"/>
+            app:layout_constraintHorizontal_bias="1.0" app:layout_constraintVertical_bias="0.304"
+            android:textColor="#EEEEEE"/>
     <ScrollView
             android:layout_width="410dp"
             android:layout_height="223dp"
@@ -67,7 +69,7 @@
                 android:text="description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:id="@+id/descriptionBook"
-        />
+                android:textColor="#EEEEEE"/>
     </ScrollView>
     <TextView
             android:text="Library"
@@ -79,19 +81,22 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="189dp"
             android:layout_marginEnd="12dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.276" app:layout_constraintVertical_bias="0.0"
-            android:typeface="serif"/>
+            android:typeface="serif" android:textColor="#EEEEEE"/>
     <Button
             android:text="CheckOut"
-            android:layout_width="137dp"
-            android:layout_height="80dp" android:id="@+id/checkOutButton"
+            android:layout_width="160dp"
+            android:layout_height="100dp" android:id="@+id/checkOutButton"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.211" app:layout_constraintVertical_bias="0.955"/>
+            app:layout_constraintHorizontal_bias="0.164" app:layout_constraintVertical_bias="0.953"
+            android:backgroundTint="#00ADB5" android:textSize="20sp" android:textColor="#EEEEEE"/>
     <Button
             android:text="Reviews"
-            android:layout_width="146dp"
-            android:layout_height="83dp" android:id="@+id/reviewButton"
+            android:layout_width="160dp"
+            android:layout_height="100dp" android:id="@+id/reviewButton"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_bias="0.837" app:layout_constraintVertical_bias="0.955"/>
+            app:layout_constraintHorizontal_bias="0.873" app:layout_constraintVertical_bias="0.953"
+            android:backgroundTint="#00ADB5" android:typeface="normal" android:textSize="20sp"
+            android:textColor="#EEEEEE"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
